@@ -2,66 +2,46 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEF.GG - 100% PENALTIS - FINAL</title>
+<title>LEF ONLINE</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#060912;--card:#101426;--gold:#FFCC33;--gold2:#D4A017;--dim:#7A7A9A;--green:#2ECC71;--red:#FF4D4D}
+:root{--bg:#060912;--card:#101426;--gold:#FFCC33;--gold2:#D4A017;--dim:#7A7A9A;--green:#2ECC71;--red:#FF4D4D;--blue:#4DA3FF}
 body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
-.header{position:sticky;top:0;background:rgba(6,9,18,.96);border-bottom:2px solid var(--gold2);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;z-index:10}
-.logo{font-family:'Cinzel';font-weight:800;letter-spacing:4px;color:var(--gold);font-size:20px}
+.header{position:sticky;top:0;z-index:50;background:#060912;border-bottom:2px solid var(--gold2);padding:14px;display:flex;justify-content:center}
+.logo{font-family:'Cinzel';font-weight:800;letter-spacing:6px;color:var(--gold);font-size:21px}
 .wrap{max-width:480px;margin:0 auto;padding:10px 10px 90px}
 .card{border:1.5px solid var(--gold2);background:linear-gradient(180deg,#101426,#080B18);margin-bottom:10px;overflow:hidden}
-.head{padding:12px 14px;border-bottom:1px solid rgba(255,204,51,.18);display:flex;justify-content:space-between}
-.tag{background:rgba(255,204,51,.12);border:1px solid var(--gold2);color:var(--gold);padding:4px 8px;font-size:9px;font-weight:800}
-.title{font-family:'Cinzel';text-align:center;color:var(--gold);font-size:22px;letter-spacing:3px;font-weight:800;padding:12px 0 4px}
-.sub{text-align:center;font-size:9px;color:var(--gold2);padding-bottom:10px;border-bottom:1px solid rgba(255,204,51,.12);margin:0 14px}
+.head{padding:12px 14px;border-bottom:1px solid rgba(255,204,51,.15);display:flex;justify-content:space-between;align-items:center}
+.head-title{font-family:'Cinzel';color:var(--gold);font-size:12px;letter-spacing:2px;font-weight:800}
+.title{font-family:'Cinzel';text-align:center;color:var(--gold);font-size:20px;letter-spacing:4px;font-weight:800;padding:16px 0 8px}
 .banner{margin:10px 12px;background:var(--gold);color:#000;font-family:'Cinzel';font-weight:800;padding:9px;text-align:center;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,0 100%,10px 50%)}
 .banner.empate{background:#1A1A2E;color:var(--gold);border:1px solid var(--gold2)}
-.banner.derrota{background:#8B1A1A;color:#FFD0D0}
+.banner.derrota{background:#2A0A0A;color:#FFB0B0;border:1px solid var(--red)}
 .placar{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:12px}
 .time{border:1.5px solid var(--gold2);background:rgba(0,0,0,.4);padding:10px;text-align:center}
-.time-name{font-family:'Cinzel';font-weight:800;color:var(--gold);font-size:13px}
-.score{font-family:'Cinzel';font-weight:800;font-size:32px;color:var(--gold);text-align:center}
-.pen-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05)}
-.p-nome{flex:1;font-size:12px;font-weight:600} .p-nome small{display:block;font-size:9px;color:var(--dim)}
-.p-result{padding:6px 14px;border-radius:20px;font-weight:800;font-size:12px;min-width:62px;text-align:center}
-.p-result.gol{background:var(--green);color:#000} .p-result.def{background:var(--red);color:#fff}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#060912;border-top:2px solid var(--gold2);display:grid;grid-template-columns:repeat(5,1fr);max-width:480px;margin:0 auto}
-.nav-item{padding:8px 2px;text-align:center;color:var(--dim);font-size:9px;cursor:pointer} .nav-item.active{color:var(--gold)}
-.page{display:none}.page.active{display:block}
+.time-name{font-family:'Cinzel';font-weight:800;color:var(--gold);font-size:12px}
+.score{font-family:'Cinzel';font-weight:800;font-size:30px;color:var(--gold);text-align:center}
+.pen-row{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.p-nome{flex:1;font-size:13px;font-weight:600}.p-nome small{display:block;font-size:9px;color:var(--dim)}
+.p-result{padding:6px 14px;border-radius:20px;font-weight:800;font-size:11px;min-width:66px;text-align:center}
+.p-result.gol{background:var(--green);color:#000}.p-result.def{background:var(--red);color:#fff}
+.comp-tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;scrollbar-width:none}
+.comp-tab{flex:0 0 auto;border:1.5px solid var(--gold2);background:rgba(0,0,0,.4);padding:10px 14px;min-width:110px;cursor:pointer}
+.comp-tab.active{background:var(--gold);color:#000}
+.comp-name{font-family:'Cinzel';font-size:11px;font-weight:800}.comp-info{font-size:9px;margin-top:4px;color:var(--dim)}.comp-tab.active .comp-info{color:#000}
+.match-card{padding:12px;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer}
+.match-comp{font-size:9px;letter-spacing:1px;color:var(--gold);border:1px solid var(--gold2);padding:2px 6px;display:inline-block;margin-bottom:6px}
+.match-line{font-family:'Cinzel';font-size:13px;margin-top:2px}
+.match-extra{font-size:10px;color:var(--dim);margin-top:4px}
+.ranking-tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 10px 0}
+.rtab{border:1px solid var(--gold2);padding:6px 10px;font-size:9px;letter-spacing:1px;color:var(--gold);cursor:pointer;white-space:nowrap}.rtab.active{background:var(--gold);color:#000;font-weight:800}
+.rrow{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.06)}
+.rpos{font-family:'Cinzel';font-weight:800;color:var(--gold);width:28px}
 .jornal{border:2px solid var(--gold2);background:radial-gradient(ellipse at top,#1F1B0A,#0A0A0A);padding:12px;margin:10px}
-.log{font-size:11px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:8px}
-</style>
-</head>
-<body>
-<div class="header"><div style="font-size:10px;color:#7A7A9A">● 2132 ONLINE</div><div class="logo">LEF.GG</div><div style="color:var(--gold)">⌕ ✉</div></div>
-<div class="wrap">
-<div id="page-inicio" class="page active">
-  <div class="card">
-    <div class="head"><span class="tag">🎯 100% PÊNALTIS</span><span class="tag">AO VIVO</span></div>
-    <div class="title">LEF DAILY NEWS</div><div class="sub">EDIÇÃO #1287 • 16 OUT • PÊNALTIS</div>
-    <div id="main-banner"></div>
-    <div class="placar" id="main-placar"></div>
-    <div id="main-lista"></div>
-    <div id="main-alt"></div>
-  </div>
-  <div class="card"><div class="head"><span style="font-family:'Cinzel';color:var(--gold)">💬 CHAT DA LIGA</span></div><div id="chat"></div></div>
-</div>
-<div id="page-partidas" class="page"><div class="card"><div class="head"><span style="font-family:'Cinzel';color:var(--gold)">⚔️ DISPUTAS</span></div><div id="lista-partidas"></div></div></div>
-<div id="page-imprensa" class="page"><div class="card"><div class="head"><span style="font-family:'Cinzel';color:var(--gold)">📰 IMPRENSA</span></div><div id="imprensa"></div></div></div>
-<div id="page-tabela" class="page"><div class="card"><div class="head"><span style="font-family:'Cinzel';color:var(--gold)">🏆 RANKING</span></div><div id="ranking"></div></div></div>
-</div>
-<div class="nav">
-  <div class="nav-item active" data-p="inicio">🏛️<br>Início</div>
-  <div class="nav-item" data-p="partidas">⚔️<br>Disputas</div>
-  <div class="nav-item" data-p="tabela">🏆<br>Ranking</div>
-  <div class="nav-item" data-p="imprensa">📰<br>Imprensa</div>
-  <div class="nav-item" data-p="adm">⚙️<br>ADM</div>
-</div>
-<script>
-// AQUI VOCÊ SÓ MUDA NOME DO JOGADOR + GOL/DEFESA
-const disputas=[
-  {id:1,casa:'TIGRES FC',fora:'LOBOS FC',
-   jogadoresCasa:[{nome:'Raykon',gol:true},{nome:'Lucas Silva',gol:false},{nome:'L. Ferraz',gol:true},{nome:'Gustavo',gol:true},{nome:'Colly',gol:false}],
-   jogadoresFora:[{nome:'Marcos',gol:true},{nome:'Rafa
+.leilao{padding:12px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center}
+.leilao-tag{font-size:8px;letter-spacing:1px;padding:3px 6px;border:1px solid var(--gold2);color:var(--gold);margin-bottom:4px;display:inline-block}
+.leilao-name{font-weight:800;font-size:13px}
+.leilao-val{font-size:11px;color:var(--dim);margin-top:2px}
+.leilao-final{font-family:'Cinzel';font-weight:800;color:var(--green);font-size:14px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#060912;border-top:2px solid var(--gold2);display:grid;grid-template-columns:repeat(5,1fr);max-width:480px;margin:0 auto
