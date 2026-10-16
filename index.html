@@ -4,35 +4,77 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LEF - Liga Elite Futebol</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Space Grotesk',sans-serif;background:#080808;color:white}
+.anton{font-family:'Anton',sans-serif;letter-spacing:.02em}
+.glass{backdrop-filter:blur(16px);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)}
+.glow{box-shadow:0 0 80px rgba(255,255,255,0.15)}
+</style>
 </head>
-<body class="bg-black text-white font-sans">
-<header class="p-5 border-b border-zinc-800 flex justify-between">
-<div class="font-black text-2xl">LEF.GG</div>
-<div class="text-xs text-zinc-500">AO VIVO</div>
-</header>
+<body class="overflow-x-hidden">
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 glass flex justify-between items-center px-6 md:px-10 py-4">
+<div class="anton text-3xl">LEF<span class="text-zinc-500">.GG</span></div>
+<div class="hidden md:flex gap-8 text-[11px] tracking-[0.2em] text-zinc-400">
+<span class="text-white">LIGAS</span><span>CLUBES</span><span>MUSEU</span><span>BOLA DE OURO</span>
+</div>
+<div class="bg-white text-black px-5 py-2 rounded-full text-xs font-bold">AO VIVO</div>
+</nav>
 
-<div class="grid md:grid-cols-3 gap-3 p-4">
-<div class="bg-zinc-900 rounded-2xl p-4 border border-zinc-800">
-<h3 class="text-xs text-zinc-400 mb-2">GOLDEN LEAGUE - Base R$5M</h3>
-<p class="text-sm">Tigres 12pts | Reis 9pts</p>
+<!-- HERO -->
+<section class="pt-28 px-6 md:px-10">
+<div class="relative bg-[#111] rounded-[2.5rem] overflow-hidden border border-zinc-800 min-h-[520px] flex flex-col justify-end p-8 md:p-12">
+<img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover opacity-40">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+<div class="relative z-10 max-w-3xl">
+<div class="inline-flex bg-white text-black text-[10px] font-bold px-3 py-1 rounded-full tracking-widest mb-4">SEASON 01 // 2026</div>
+<h1 class="anton text-6xl md:text-[7.5rem] leading-[0.85] uppercase">ELITE<br>NUNCA<br>DORME.</h1>
+<p class="text-zinc-400 mt-6 text-sm md:text-base max-w-lg">7 competições. 32 clubes. Um império. A liga de futebol mais insana do Brasil, feita pra stream.</p>
 </div>
-<div class="bg-zinc-900 rounded-2xl p-4 border border-zinc-800">
-<h3 class="text-xs text-zinc-400 mb-2">CHAMPION LEAGUE - Base R$10M</h3>
-<p class="text-sm">Em breve</p>
+<div class="relative z-10 mt-10 flex gap-3">
+<div class="glass rounded-full px-6 py-3 text-xs">32 CLUBES</div>
+<div class="glass rounded-full px-6 py-3 text-xs">R$ 100M+ EM PREMIAÇÃO</div>
 </div>
-<div class="bg-zinc-900 rounded-2xl p-4 border border-zinc-800">
-<h3 class="text-xs text-zinc-400 mb-2">BOLA DE OURO</h3>
-<p class="text-sm">Gol fora = 1.2x pontos</p>
-<p class="text-xs text-green-400 mt-1">K.Marelo 42% | L.King 28%</p>
+</div>
+</section>
+
+<!-- LEAGUES GRID -->
+<section class="px-6 md:px-10 mt-6 grid md:grid-cols-12 gap-4">
+<div class="md:col-span-7 bg-[#EAEAEA] text-black rounded-[2rem] p-8 flex flex-col justify-between min-h-[320px] relative overflow-hidden">
+<div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-black/10 to-transparent"></div>
+<div class="relative">
+<div class="flex justify-between"><span class="text-[11px] tracking-widest font-bold opacity-50">TIER 01</span><span class="text-[11px] bg-black text-white px-3 py-1 rounded-full">HOT</span></div>
+<h2 class="anton text-5xl mt-4 leading-none uppercase">GOLDEN<br>LEAGUE</h2>
+</div>
+<div class="relative flex justify-between items-end">
+<div><p class="text-3xl font-bold">32</p><p class="text-[10px] tracking-widest opacity-60">CLUBES / 12 RODADAS</p></div>
+<div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center text-xl">↗</div>
 </div>
 </div>
 
-<div class="p-4">
-<div class="bg-white text-black rounded-2xl p-4">
-<h2 class="font-black">SISTEMA DE RENDA ATIVO</h2>
-<p class="text-xs mt-2">CASA: Derrota=Base | Empate=Base+BônusComp | Vitória=Base+BônusComp+BônusVit</p>
-<p class="text-xs">VISITANTE: Derrota=0 | Empate=BônusComp | Vitória=BônusComp+BônusVit</p>
+<div class="md:col-span-5 grid gap-4">
+<div class="bg-[#1A1A1A] rounded-[2rem] p-7 border border-zinc-800 flex flex-col justify-between">
+<div class="flex justify-between text-[10px] tracking-widest text-zinc-500"><span>TIER 02</span><span>● LIVE</span></div>
+<h3 class="anton text-3xl mt-3 uppercase">Champion<br>League</h3>
+<div class="mt-6 flex -space-x-2"><div class="w-8 h-8 rounded-full bg-zinc-700 border-2 border-[#1A1A1A]"></div><div class="w-8 h-8 rounded-full bg-zinc-600 border-2 border-[#1A1A1A]"></div><div class="w-8 h-8 rounded-full bg-zinc-500 border-2 border-[#1A1A1A]"></div><div class="w-8 h-8 rounded-full bg-white text-black border-2 border-[#1A1A1A] flex items-center justify-center text-[10px] font-bold">+29</div></div>
+</div>
+
+<div class="bg-[#7AFF00] text-black rounded-[2rem] p-7 flex justify-between items-center">
+<div><p class="anton text-2xl leading-none uppercase">BOLA DE<br>OURO</p><p class="text-[10px] mt-2 tracking-widest font-bold">VOTAÇÃO ABERTA</p></div>
+<div class="text-right"><p class="text-4xl font-black">42%</p><p class="text-[10px] font-bold tracking-widest">K.MARELO</p></div>
 </div>
 </div>
+</section>
+
+<!-- MUSEU PREVIEW -->
+<section class="px-6 md:px-10 mt-4">
+<div class="bg-[#111] rounded-[2rem] border border-zinc-800 p-8 md:p-10 flex flex-col md:flex-row justify-between gap-6">
+<div><h4 class="anton text-3xl uppercase">MUSEU LEF</h4><p class="text-zinc-500 text-sm mt-2 max-w-sm">História, títulos, recordes e lendas. Cada gol vira relíquia.</p></div>
+<div class="flex gap-3 overflow-x-auto"><div class="glass rounded-2xl px-6 py-4 min-w-[160px]"><p class="text-[10px] text-zinc-500 tracking-widest">MAIOR GOLEADA</p><p class="font-bold mt-1">Tigres 9-1 Leões</p></div><div class="glass rounded-2xl px-6 py-4 min-w-[160px]"><p class="text-[10px] text-zinc-500 tracking-widest">RECORDE</p><p class="font-bold mt-1">K.Marelo 11 gols</p></div></div>
+</div>
+</section>
+
+<footer class="px-10 py-12 text-[10px] tracking-[0.3em] text-zinc-600 text-center">LEF.GG © 2026 — BUILT FOR STREAM</footer>
 </body>
 </html>
