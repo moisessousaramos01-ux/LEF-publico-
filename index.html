@@ -6,76 +6,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#060912;--gold:#FFCC33;--gold2:#D4A017;--dim:#7A7A9A;--green:#2ECC71;--red:#FF4D4D;--blue:#4DA3FF}
+:root{--bg:#060912;--gold:#FFCC33;--gold2:#D4A017;--dim:#7A7A9A;--green:#2ECC71;--red:#FF4D4D}
 body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
-.header{position:sticky;top:0;z-index:50;background:#060912;border-bottom:2px solid var(--gold2);padding:14px;display:flex;justify-content:center}
+.header{position:sticky;top:0;background:#060912;border-bottom:2px solid var(--gold2);padding:14px;display:flex;justify-content:center}
 .logo{font-family:'Cinzel';font-weight:800;letter-spacing:6px;color:var(--gold);font-size:21px}
 .wrap{max-width:480px;margin:0 auto;padding:10px 10px 90px}
 .card{border:1.5px solid var(--gold2);background:linear-gradient(180deg,#101426,#080B18);margin-bottom:12px;overflow:hidden}
 .head{padding:12px 14px;border-bottom:1px solid rgba(255,204,51,.15)}
 .head-title{font-family:'Cinzel';color:var(--gold);font-size:12px;letter-spacing:2px;font-weight:800}
-.title{font-family:'Cinzel';text-align:center;color:var(--gold);font-size:20px;letter-spacing:4px;font-weight:800;padding:16px 0 8px}
-.banner{margin:10px 12px;background:var(--gold);color:#000;font-family:'Cinzel';font-weight:800;padding:9px;text-align:center}
-.banner.empate{background:#1A1A2E;color:var(--gold);border:1px solid var(--gold2)}
-.placar{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:12px}
-.time{border:1.5px solid var(--gold2);background:rgba(0,0,0,.4);padding:10px;text-align:center}
-.time-name{font-family:'Cinzel';font-weight:800;color:var(--gold);font-size:12px}
-.score{font-family:'Cinzel';font-weight:800;font-size:30px;color:var(--gold);text-align:center}
-.pen-row{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.06)}
-.p-nome{flex:1;font-size:13px;font-weight:600}.p-nome small{display:block;font-size:9px;color:var(--dim)}
-.p-result{padding:6px 14px;border-radius:20px;font-weight:800;font-size:11px;min-width:66px;text-align:center}
-.p-result.gol{background:var(--green);color:#000}.p-result.def{background:var(--red);color:#fff}
-.comp-tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 12px}
-.comp-tab{flex:0 0 auto;border:1.5px solid var(--gold2);background:rgba(0,0,0,.4);padding:10px 14px;min-width:110px;cursor:pointer}
-.comp-tab.active{background:var(--gold);color:#000}
-.comp-name{font-family:'Cinzel';font-size:11px;font-weight:800}.comp-info{font-size:9px;margin-top:4px;color:var(--dim)}
-.match-card{padding:12px;border-bottom:1px solid rgba(255,255,255,.06);cursor:pointer}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.comp-big{border:2px solid var(--gold2);background:linear-gradient(180deg,#1A1A2E,#080B18);padding:18px 14px;cursor:pointer;min-height:110px;display:flex;flex-direction:column;justify-content:space-between}
+.comp-big-name{font-family:'Cinzel';font-size:14px;font-weight:800;color:var(--gold)}
+.comp-big-meta{font-size:10px;color:var(--dim);margin-top:8px}
+.comp-big-status{font-size:9px;color:#000;background:var(--gold);padding:3px 6px;display:inline-block;margin-top:10px;font-weight:800}
+.match-card{padding:12px;border-bottom:1px solid rgba(255,255,255,.06)}
 .match-comp{font-size:9px;color:var(--gold);border:1px solid var(--gold2);padding:2px 6px;display:inline-block;margin-bottom:6px}
-.match-line{font-family:'Cinzel';font-size:13px;margin-top:2px}
-.match-extra{font-size:10px;color:var(--dim);margin-top:4px}
-.ranking-tabs{display:flex;gap:6px;overflow-x:auto;padding:10px}
-.rtab{border:1px solid var(--gold2);padding:6px 10px;font-size:9px;color:var(--gold);cursor:pointer;white-space:nowrap}.rtab.active{background:var(--gold);color:#000;font-weight:800}
-.rrow{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.06)}
-.rpos{font-family:'Cinzel';font-weight:800;color:var(--gold);width:28px}
-.jornal{border:2px solid var(--gold2);background:#0A0A0A;padding:12px;margin:10px}
-.leilao{padding:12px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between}
-.leilao-tag{font-size:8px;border:1px solid var(--gold2);color:var(--gold);padding:3px 6px;margin-bottom:4px;display:inline-block}
-.leilao-name{font-weight:800;font-size:13px}.leilao-val{font-size:11px;color:var(--dim);margin-top:2px}
-.leilao-final{font-family:'Cinzel';font-weight:800;color:var(--green);font-size:14px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#060912;border-top:2px solid var(--gold2);display:grid;grid-template-columns:repeat(5,1fr);max-width:480px;margin:0 auto;z-index:60}
+.match-line{font-family:'Cinzel';font-size:13px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#060912;border-top:2px solid var(--gold2);display:grid;grid-template-columns:repeat(5,1fr);max-width:480px;margin:0 auto}
 .nav-item{padding:10px 2px;text-align:center;color:var(--dim);font-size:9px;cursor:pointer}.nav-item.active{color:var(--gold)}
 .page{display:none}.page.active{display:block}
-.back{padding:10px 12px;font-size:11px;color:var(--gold);cursor:pointer;border-bottom:1px solid rgba(255,204,51,.15)}
-.estad-info{margin:8px 12px;padding:8px;border:1px dashed var(--gold2);background:rgba(255,204,51,.06);font-size:11px}
 </style>
 </head>
 <body>
 <div class="header"><div class="logo">LEF ONLINE</div></div>
 <div class="wrap">
-
 <div id="page-inicio" class="page active">
-  <div class="card"><div class="title">LEF DAILY NEWS</div><div id="main-banner"></div><div class="placar" id="main-placar"></div><div id="main-lista"></div></div>
-  <div class="card"><div class="head"><div class="head-title">COMPETIÇÕES</div></div><div class="comp-tabs" id="comp-tabs"></div><div id="comp-preview" style="padding:10px 12px;font-size:11px;color:var(--dim)">Clique em uma competição para ver os jogos dela.</div></div>
+  <div class="card"><div class="head"><div class="head-title">COMPETIÇÕES</div></div><div class="comp-grid" id="comp-grid"></div></div>
+  <div class="card"><div class="head"><div class="head-title">ÚLTIMAS DISPUTAS</div></div><div id="ultimas-disputas"></div></div>
 </div>
-
-<div id="page-competicao" class="page">
-  <div class="card"><div class="back" onclick="switchPage('inicio')">‹ VOLTAR</div><div class="head"><div class="head-title" id="comp-det-title"></div></div><div id="comp-det-content"></div></div>
+<div id="page-competicao" class="page"><div class="card"><div style="padding:10px;color:var(--gold);cursor:pointer" onclick="switchPage('inicio')">‹ VOLTAR</div><div class="head"><div class="head-title" id="comp-det-title"></div></div><div id="comp-det-content"></div></div></div>
+<div id="page-disputas" class="page"><div class="card"><div class="head"><div class="head-title">HISTÓRICO</div></div><div id="lista-disputas"></div></div></div>
+<div id="page-ranking" class="page"><div class="card"><div class="head"><div class="head-title">RANKING</div></div><div id="ranking-content"></div></div></div>
+<div id="page-imprensa" class="page"><div class="card"><div class="head"><div class="head-title">IMPRENSA</div></div><div id="imprensa-list"></div></div></div>
+<div id="page-negocios" class="page"><div class="card"><div class="head"><div class="head-title">NEGÓCIOS</div></div><div id="negocios-content"></div></div></div>
 </div>
-
-<div id="page-disputas" class="page"><div class="card"><div class="head"><div class="head-title">HISTÓRICO DE DISPUTAS</div></div><div id="lista-disputas"></div></div></div>
-
-<div id="page-ranking" class="page">
-  <div class="card"><div class="head"><div class="head-title">RANKING</div></div><div class="ranking-tabs" id="ranking-tabs"></div><div id="ranking-content"></div></div>
-</div>
-
-<div id="page-imprensa" class="page"><div class="card"><div class="head"><div class="head-title">IMPRENSA • JORNAL AUTOMÁTICO</div></div><div id="imprensa-list"></div></div></div>
-
-<div id="page-negocios" class="page">
-  <div class="card"><div class="head"><div class="head-title">NEGÓCIOS</div></div><div class="ranking-tabs" id="neg-tabs"><div class="rtab active" data-tab="leiloes">LEILÕES</div><div class="rtab" data-tab="transferencias">TRANSFERÊNCIAS</div><div class="rtab" data-tab="estadios">ESTÁDIOS</div></div><div id="negocios-content"></div></div>
-</div>
-
-</div>
-
 <div class="nav">
   <div class="nav-item active" data-p="inicio">🏛️<br>Início</div>
   <div class="nav-item" data-p="disputas">⚔️<br>Disputas</div>
@@ -83,96 +47,23 @@ body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
   <div class="nav-item" data-p="imprensa">📰<br>Imprensa</div>
   <div class="nav-item" data-p="negocios">💼<br>Negócios</div>
 </div>
-
 <script>
 const competicoes=[
   {id:'ouro',nome:'LIGA OURO',temporada:'T14 • RODADA 13',status:'AO VIVO',desc:'Elite • 12 times'},
-  {id:'prata',nome:'LIGA PRATA',temporada:'T14 • RODADA 12',status:'EM ANDAMENTO',desc:'Acesso • 12 times'},
+  {id:'prata',nome:'LIGA PRATA',temporada:'T14 • RODADA 12',status:'RODADA 12',desc:'Acesso • 12 times'},
   {id:'copa',nome:'COPA LEF',temporada:'QUARTAS • MATA-MATA',status:'MATA-MATA',desc:'Obrigatório vencer'},
   {id:'liberta',nome:'LIBERTADORES LEF',temporada:'FASE GRUPOS',status:'GRUPOS',desc:'Continental'},
 ];
 const disputas=[
-  {id:1,casa:'TIGRES FC',fora:'LOBOS FC',comp:'LIGA OURO',estadio:'Arena Tigres • Renda R$ 42.300',mandante:'TIGRES FC',jogadoresCasa:[{nome:'Raykon',gol:true},{nome:'Lucas Silva',gol:false},{nome:'L. Ferraz',gol:true},{nome:'Gustavo',gol:true},{nome:'Colly',gol:false}],jogadoresFora:[{nome:'Marcos',gol:true},{nome:'Rafa',gol:true},{nome:'João',gol:false},{nome:'Pedro',gol:false},{nome:'Igor',gol:false}],rodada:13,data:'Hoje 22:14',mataMata:false},
-  {id:2,casa:'TIGRES FC',fora:'FÊNIX FC',comp:'COPA LEF',estadio:'Arena Tigres • Renda R$ 38.900',mandante:'TIGRES FC',jogadoresCasa:[{nome:'Raykon',gol:false},{nome:'Lucas',gol:false},{nome:'Ferraz',gol:true},{nome:'Gus',gol:false},{nome:'Colly',gol:true}],jogadoresFora:[{nome:'Ana',gol:true},{nome:'Beto',gol:false},{nome:'Carlos',gol:true},{nome:'Dani',gol:false},{nome:'Eva',gol:false}],rodada:12,data:'15 OUT',mataMata:false},
-  {id:3,casa:'REIS FC',fora:'TIGRES FC',comp:'COPA LEF',estadio:'Coliseu dos Reis • Renda R$ 55.000',mandante:'REIS FC',jogadoresCasa:[{nome:'Rei 1',gol:true},{nome:'Rei 2',gol:false},{nome:'Rei 3',gol:true},{nome:'Rei 4',gol:false},{nome:'Rei 5',gol:false}],jogadoresFora:[{nome:'Tigre 1',gol:true},{nome:'Tigre 2',gol:false},{nome:'Tigre 3',gol:true},{nome:'Tigre 4',gol:false},{nome:'Tigre 5',gol:false}],rodada:11,data:'12 OUT',mataMata:true},
+  {id:1,casa:'TIGRES FC',fora:'LOBOS FC',comp:'LIGA OURO',estadio:'Arena Tigres • Renda R$ 42.300',mandante:'TIGRES FC',jogadoresCasa:[{nome:'Raykon',gol:true},{nome:'Lucas Silva',gol:false}],jogadoresFora:[{nome:'Marcos',gol:true}],rodada:13,data:'Hoje',mataMata:false},
 ];
-const rankingArtilharia=[{nome:'Raykon',time:'TIGRES FC',gols:11},{nome:'Marcos',time:'LOBOS FC',gols:9}];
-const rankingDefesas=[{nome:'Colly',time:'TIGRES FC',defesas:14},{nome:'Rafa',time:'LOBOS FC',defesas:11}];
-const bolaOuro=[{nome:'Raykon',time:'TIGRES FC',pts:142,det:'8 GOLS + 3 DECISIVOS'},{nome:'Rei 1',time:'REIS FC',pts:118,det:'6 GOLS + 4 ASSIST'}];
-const luvaOuro=[{nome:'Colly',time:'TIGRES FC',pts:98,det:'14 defesas'},{nome:'Rafa',time:'LOBOS FC',pts:82,det:'11 defesas'}];
-const rankingTimes=[{nome:'TIGRES FC',dinheiro:'R$ 1.204.500',titulos:3},{nome:'REIS FC',dinheiro:'R$ 980.300',titulos:2}];
-const leiloes=[{tipo:'JOGADOR',nome:'L. Ferraz (ATQ 92)',inicio:'R$ 50.000',final:'R$ 210.000',comprador:'TIGRES FC',vendedor:'FÊNIX FC',data:'15 OUT'},{tipo:'ESTÁDIO',nome:'Arena Norte • Nível 3',inicio:'R$ 300.000',final:'R$ 450.000',comprador:'LOBOS FC',vendedor:'LEF',data:'14 OUT'}];
-const transferencias=[{jogador:'Gustavo',de:'FÊNIX FC',para:'TIGRES FC',valor:'R$ 120.000',data:'15 OUT'}];
-const estadios=[{nome:'Arena Tigres',time:'TIGRES FC',nivel:4,rendaMedia:'R$ 42.300',bonus:'+25% renda casa'},{nome:'Coliseu dos Reis',time:'REIS FC',nivel:5,rendaMedia:'R$ 55.000',bonus:'+35% renda casa'}];
-
-function score(d){return {a:d.jogadoresCasa.filter(j=>j.gol).length,b:d.jogadoresFora.filter(j=>j.gol).length}}
 function renderInicio(){
-  const d=disputas[0]; const s=score(d); const empate=s.a===s.b;
-  document.getElementById('main-banner').innerHTML=`<div class="banner ${empate?'empate':''}">${empate?`EMPATE NOS PÊNALTIS ${s.a}x${s.b}`:`VITÓRIA NOS PÊNALTIS ${s.a}x${s.b}`} • ${d.comp}</div>`;
-  document.getElementById('main-placar').innerHTML=`<div class="time"><div class="time-name">${d.casa}</div></div><div class="score">${s.a} x ${s.b}<div style="font-size:9px;color:var(--dim);margin-top:4px">${d.estadio}</div></div><div class="time"><div class="time-name">${d.fora}</div></div>`;
-  let html=''; html+=`<div style="padding:8px 12px;font-size:9px;color:var(--dim)">${d.casa}</div>`;
-  d.jogadoresCasa.forEach(j=>{html+=`<div class="pen-row"><div class="p-nome">${j.nome}<small>${d.casa}</small></div><div class="p-result ${j.gol?'gol':'def'}">${j.gol?'GOL ⚽':'DEF 🧤'}</div></div>`});
-  html+=`<div style="padding:8px 12px;font-size:9px;color:var(--dim)">${d.fora}</div>`;
-  d.jogadoresFora.forEach(j=>{html+=`<div class="pen-row"><div class="p-nome">${j.nome}<small>${d.fora}</small></div><div class="p-result ${j.gol?'gol':'def'}">${j.gol?'GOL ⚽':'DEF 🧤'}</div></div>`});
-  document.getElementById('main-lista').innerHTML=html;
-  document.getElementById('comp-tabs').innerHTML=competicoes.map(c=>`<div class="comp-tab" onclick="openComp('${c.id}')"><div class="comp-name">${c.nome}</div><div class="comp-info">${c.temporada}</div></div>`).join('');
+  document.getElementById('comp-grid').innerHTML=competicoes.map(c=>`<div class="comp-big" onclick="openComp('${c.id}')"><div><div class="comp-big-name">${c.nome}</div><div class="comp-big-meta">${c.temporada}<br>${c.desc}</div></div><div class="comp-big-status">${c.status}</div></div>`).join('');
 }
-function openComp(id){
-  const c=competicoes.find(x=>x.id===id); const jogos=disputas.filter(j=>j.comp===c.nome);
-  document.getElementById('comp-det-title').innerText=c.nome+' • '+c.temporada;
-  let html=`<div style="padding:12px;font-size:11px;color:var(--dim)">${c.desc} • ${c.status}</div>`;
-  jogos.forEach(d=>{const s=score(d);html+=`<div class="match-card"><div class="match-comp">${d.comp}</div><div class="match-line">${d.casa} ${s.a} x ${s.b} ${d.fora}</div><div class="match-extra">${d.data} • ${d.estadio}</div><div class="estad-info">🏟️ ${d.mandante} recebeu renda extra</div></div>`});
-  if(jogos.length===0) html+=`<div style="padding:20px;text-align:center;color:var(--dim)">Nenhum jogo ainda.</div>`;
-  document.getElementById('comp-det-content').innerHTML=html;
-  switchPage('competicao');
-}
-function renderDisputas(){
-  document.getElementById('lista-disputas').innerHTML=disputas.map(d=>{const s=score(d);return `<div class="match-card"><div class="match-comp">${d.comp} • ${d.data}</div><div class="match-line">${d.casa} <span style="color:var(--gold)">${s.a} x ${s.b}</span> ${d.fora} ${s.a===s.b?'<span style=color:var(--gold)>• EMPATE</span>':''}</div><div class="match-extra">Rodada ${d.rodada} • ${d.estadio}</div></div>`}).join('');
-}
-function renderRanking(){
-  document.getElementById('ranking-tabs').innerHTML=`<div class="rtab active" data-r="art">ARTILHARIA</div><div class="rtab" data-r="def">DEFESAS</div><div class="rtab" data-r="bola">BOLA DE OURO</div><div class="rtab" data-r="luva">LUVA DE OURO</div><div class="rtab" data-r="times">TIMES</div>`;
-  document.querySelectorAll('#ranking-tabs.rtab').forEach(el=>{
-    el.addEventListener('click',()=>setRankTab(el.dataset.r, el));
-  });
-  setRankTab('art', document.querySelector('#ranking-tabs.rtab'));
-}
-function setRankTab(id,el){
-  document.querySelectorAll('#ranking-tabs.rtab').forEach(e=>e.classList.remove('active'));
-  if(el) el.classList.add('active');
-  let html='';
-  if(id==='art') html=rankingArtilharia.map((r,i)=>`<div class="rrow"><div style="display:flex;gap:8px"><div class="rpos">${i+1}º</div><div><div style="font-weight:800">${r.nome}</div><div style="font-size:10px;color:var(--dim)">${r.time}</div></div></div><div style="color:var(--gold)">${r.gols} GOLS</div></div>`).join('');
-  if(id==='def') html=rankingDefesas.map((r,i)=>`<div class="rrow"><div style="display:flex;gap:8px"><div class="rpos">${i+1}º</div><div><div style="font-weight:800">${r.nome}</div></div></div><div>${r.defesas} DEF</div></div>`).join('');
-  if(id==='bola') html=bolaOuro.map((r,i)=>`<div class="rrow"><div><div style="font-weight:800">${r.nome}</div><div style="font-size:9px;color:var(--dim)">${r.det}</div></div><div style="color:var(--gold)">${r.pts} PTS</div></div>`).join('');
-  if(id==='luva') html=luvaOuro.map((r,i)=>`<div class="rrow"><div><div style="font-weight:800">${r.nome}</div><div style="font-size:9px;color:var(--dim)">${r.det}</div></div><div>${r.pts} PTS</div></div>`).join('');
-  if(id==='times') html=rankingTimes.map((r,i)=>`<div class="rrow"><div><div style="font-weight:800">${r.nome}</div><div style="font-size:9px;color:var(--dim)">${r.titulos} títulos</div></div><div style="color:var(--green)">${r.dinheiro}</div></div>`).join('');
-  document.getElementById('ranking-content').innerHTML=html;
-}
-function renderImprensa(){
-  document.getElementById('imprensa-list').innerHTML=disputas.map(d=>{const s=score(d);return `<div class="jornal"><div class="banner ${s.a===s.b?'empate':''}">${s.a===s.b?`EMPATE ${s.a}x${s.b}`:`VITÓRIA ${s.a}x${s.b}`} • ${d.comp}</div><div style="text-align:center;font-family:'Cinzel'">${d.casa} ${s.a} X ${s.b} ${d.fora}</div><div style="font-size:10px;text-align:center;margin-top:6px;color:var(--dim)">${d.data} • ${d.estadio}</div></div>`}).join('');
-}
-function renderNegocios(){
-  document.querySelectorAll('#neg-tabs.rtab').forEach(el=>{
-    el.addEventListener('click',()=>setNegTab(el.dataset.tab, el));
-  });
-  setNegTab('leiloes', document.querySelector('#neg-tabs.rtab'));
-}
-function setNegTab(tab,el){
-  document.querySelectorAll('#neg-tabs.rtab').forEach(e=>e.classList.remove('active'));
-  if(el) el.classList.add('active');
-  let html='';
-  if(tab==='leiloes') html=leiloes.map(l=>`<div class="leilao"><div><div class="leilao-tag">${l.tipo}</div><div class="leilao-name">${l.nome}</div><div class="leilao-val">Início ${l.inicio} → ${l.final} • ${l.comprador} de ${l.vendedor} • ${l.data}</div></div><div class="leilao-final">${l.final}</div></div>`).join('');
-  if(tab==='transferencias') html=transferencias.map(t=>`<div class="leilao"><div><div class="leilao-name">${t.jogador}</div><div class="leilao-val">${t.de} → ${t.para} • ${t.valor}</div></div><div class="leilao-final">${t.valor}</div></div>`).join('');
-  if(tab==='estadios') html=estadios.map(e=>`<div class="leilao"><div><div class="leilao-name">${e.nome} • ${e.time}</div><div class="leilao-val">Nível ${e.nivel} • ${e.rendaMedia} • ${e.bonus}</div></div><div class="leilao-final">${e.rendaMedia}</div></div>`).join('');
-  document.getElementById('negocios-content').innerHTML=html;
-}
-function switchPage(p){
-  document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));
-  const nav=document.querySelector(`[data-p="${p}"]`); if(nav) nav.classList.add('active');
-}
+function openComp(id){document.getElementById('comp-det-title').innerText=id;switchPage('competicao');}
+function switchPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));const nav=document.querySelector(`[data-p="${p}"]`);if(nav)nav.classList.add('active');}
 document.querySelectorAll('.nav-item').forEach(e=>e.addEventListener('click',()=>switchPage(e.dataset.p)));
-renderInicio();renderDisputas();renderRanking();renderImprensa();renderNegocios();
+renderInicio();
 </script>
 </body>
 </html>
