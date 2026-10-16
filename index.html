@@ -2,14 +2,14 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEF ONLINE • V5 PÚBLICO</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<title>LEF ONLINE • V6 PÚBLICO FILTRADO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#060912;--card:#101426;--gold:#FFCC33;--gold2:#D4A017;--dim:#7A7A9A;--green:#2ECC71;--red:#FF4D4D;--blue:#4DA3FF}
 body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
 .header{position:sticky;top:0;z-index:50;background:#000;border-bottom:2px solid var(--gold2);padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Cinzel';font-weight:900;color:var(--gold);letter-spacing:3px;font-size:14px}
+.logo{font-family:'Cinzel';font-weight:900;color:var(--gold);letter-spacing:3px;font-size:13px}
 .live{font-size:9px;background:var(--green);color:#000;padding:4px 8px;font-weight:800}
 .comps{position:sticky;top:52px;z-index:40;background:#080B18;border-bottom:1.5px solid var(--gold2);display:flex;overflow-x:auto;padding:8px 10px;gap:8px}
 .comp-tab{white-space:nowrap;padding:8px 12px;border:1px solid var(--gold2);font-family:'Cinzel';font-size:9px;color:var(--dim);cursor:pointer}.comp-tab.active{background:var(--gold);color:#000}
@@ -19,46 +19,33 @@ body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
 .badge{font-size:8px;padding:3px 7px;border-radius:10px;font-weight:800;display:inline-block;margin:2px}
 .badge-green{background:var(--green);color:#000}.badge-red{background:var(--red);color:#fff}.badge-blue{background:var(--blue);color:#fff}.badge-gold{background:var(--gold);color:#000}
 .small{font-size:10px;color:var(--dim);line-height:1.4}
-.title{font-family:'Cinzel';font-weight:800;color:var(--gold);font-size:13px;letter-spacing:1px}
+.title{font-family:'Cinzel';font-weight:800;color:var(--gold);font-size:13px}
 .nav{position:fixed;bottom:0;left:0;right:0;background:#060912;border-top:2px solid var(--gold2);display:grid;grid-template-columns:repeat(5,1fr);max-width:680px;margin:0 auto;z-index:60}
-.nav-item{padding:10px 2px;text-align:center;color:var(--dim);font-size:8px;cursor:pointer;line-height:1.2}.nav-item.active{color:var(--gold);background:rgba(255,204,51,.12)}
+.nav-item{padding:10px 2px;text-align:center;color:var(--dim);font-size:8px;cursor:pointer}.nav-item.active{color:var(--gold);background:rgba(255,204,51,.12)}
 .page{display:none}.page.active{display:block}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .elenco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
 .jogador-card{border:1px solid rgba(255,204,51,.2);padding:6px;background:rgba(0,0,0,.3);font-size:10px}
 .placar{font-family:'Cinzel';font-weight:900;font-size:20px;color:#fff}
 </style>
 </head>
 <body>
-<div class="header"><div class="logo">LEF ONLINE • V5</div><div class="live">AO VIVO</div></div>
+<div class="header"><div class="logo">LEF ONLINE • V6</div><div class="live">AO VIVO - SÓ PÚBLICOS</div></div>
 <div class="comps"><div class="comp-tab active" data-c="all">TODAS</div><div class="comp-tab" data-c="OURO">LIGA OURO</div><div class="comp-tab" data-c="PRATA">LIGA PRATA</div><div class="comp-tab" data-c="COPA">COPA LEF</div><div class="comp-tab" data-c="LIBERTA">LIBERTADORES</div></div>
 <div class="wrap">
 
 <div id="page-inicio" class="page active">
-  <div class="card"><div class="title">🏆 LIGA DOS EMPRESÁRIOS</div><div class="small">V5 • Times + Elencos + Estádios custom + Goleiros + Transferências</div><div id="resumo-times" class="small" style="margin-top:8px"></div></div>
+  <div class="card"><div class="title">🏆 LEF ONLINE</div><div class="small">Só aparece aqui o que você marcou como 👁️ PÚBLICO no ADM V6. Invisíveis ficam ocultos.</div><div id="resumo-times" class="small" style="margin-top:8px"></div></div>
   <div id="feed-inicio"></div>
 </div>
-
-<div id="page-disputas" class="page">
-  <div id="feed-disputas"></div>
-</div>
-
-<div id="page-elencos" class="page">
-  <div class="card"><div class="title">👥 ELENCOS POR TIME</div><div class="small">Jogadores que geram renda por gol aparecem com badge verde</div></div>
-  <div id="feed-elencos"></div>
-</div>
-
+<div id="page-disputas" class="page"><div id="feed-disputas"></div></div>
+<div id="page-elencos" class="page"><div class="card"><div class="title">👥 ELENCOS PÚBLICOS</div><div class="small">Só times e jogadores marcados como públicos</div></div><div id="feed-elencos"></div></div>
 <div id="page-negocios" class="page">
-  <div class="card"><div class="title">💼 MERCADO • LEILÕES + TRANSFERÊNCIAS</div></div>
+  <div class="card"><div class="title">💼 LEILÕES PÚBLICOS + TRANSFERÊNCIAS PÚBLICAS</div></div>
   <div id="feed-leiloes"></div>
-  <div class="card"><div class="title">🔄 HISTÓRICO TRANSFERÊNCIAS</div><div id="feed-hist"></div></div>
-  <div class="card"><div class="title">📦 ADM INATIVOS • AGENTES LIVRES</div><div class="small">Dispensados disponíveis pra leilão futuro</div><div id="feed-adm"></div></div>
+  <div class="card"><div class="title">🔄 TRANSFERÊNCIAS PÚBLICAS</div><div id="feed-hist"></div></div>
+  <div class="card"><div class="title">📦 AGENTES LIVRES (ADM) PÚBLICOS</div><div id="feed-adm"></div></div>
 </div>
-
-<div id="page-ranking" class="page">
-  <div class="card"><div class="title">📊 RANKING AUTOMÁTICO</div><div id="ranking-geral"></div></div>
-  <div id="feed-ranking"></div>
-</div>
+<div id="page-ranking" class="page"><div class="card"><div class="title">📊 RANKING SÓ DE DISPUTAS PÚBLICAS</div><div id="ranking-geral"></div></div><div id="feed-ranking"></div></div>
 
 </div>
 <div class="nav">
@@ -70,58 +57,60 @@ body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
 </div>
 
 <script>
-let db=JSON.parse(localStorage.getItem('lef_v5')||'null');
+let db=JSON.parse(localStorage.getItem('lef_v6')||'null');
 if(!db){
-  db={
-    times:[{id:'ADM',nome:'ADM - INATIVOS',caixa:'R$ 0',elenco:[{nome:'Exemplo Dispensado',pos:'ATACANTE'}]}, {id:'TIGRES',nome:'TIGRES FC',caixa:'R$ 500.000',elenco:[{nome:'Raykon',pos:'ATACANTE',atq:'92',geraRenda:true,renda:'R$ 5.000'},{nome:'Colly',pos:'GOLEIRO'}]}, {id:'LOBOS',nome:'LOBOS FC',caixa:'R$ 400.000',elenco:[{nome:'Marcos',pos:'ATACANTE'},{nome:'Rafa',pos:'GOLEIRO'}]}],
-    estadios:[{time:'TIGRES FC',nome:'Arena Tigres',nivel:4,renda:'R$ 42.300',bonus:'+25%'}],
-    disputas:[{casa:'TIGRES FC',fora:'LOBOS FC',goleiroCasa:'Colly',goleiroFora:'Rafa',mandante:'TIGRES FC',estadio:'Arena Tigres • R$ 42.300 +25%',jogadoresCasa:[{nome:'Raykon',gol:true},{nome:'Lucas',gol:false}],jogadoresFora:[{nome:'Marcos',gol:true}]}],
-    leiloes:[{tipo:'JOGADOR',nome:'L. Ferraz',inicio:'R$ 50k',final:'R$ 210k',comprador:'TIGRES FC',vendedor:'LOBOS FC',geraRenda:true,rendaPorGol:'R$ 5k'}],
-    historico:[{tipo:'VENDA',jogador:'Raykon',de:'TIGRES FC',para:'LOBOS FC',valor:'R$ 100k'}],
-    pendentes:[]
+  db={times:[{id:'ADM',nome:'ADM - INATIVOS',caixa:'R$ 0',elenco:[],publico:false},{id:'TIGRES',nome:'TIGRES FC',caixa:'R$ 500.000',elenco:[{nome:'Raykon',pos:'ATACANTE',atq:'92',geraRenda:true,renda:'R$ 5.000',publico:true},{nome:'Colly',pos:'GOLEIRO',publico:true}],publico:true}],estadios:[{time:'TIGRES FC',nome:'Arena Tigres',nivel:4,renda:'R$ 42.300',bonus:'+25%',publico:true}],disputas:[{casa:'TIGRES FC',fora:'LOBOS FC',goleiroCasa:'Colly',goleiroFora:'Rafa',mandante:'TIGRES FC',estadio:'Arena Tigres • R$ 42.300',jogadoresCasa:[{nome:'Raykon',gol:true}],jogadoresFora:[{nome:'Marcos',gol:true}],publico:true}],leiloes:[{tipo:'JOGADOR',nome:'L. Ferraz',inicio:'R$ 50k',final:'R$ 210k',comprador:'TIGRES FC',vendedor:'LOBOS FC',geraRenda:true,rendaPorGol:'R$ 5k',publico:true}],historico:[{tipo:'VENDA',jogador:'Raykon',de:'TIGRES FC',para:'LOBOS FC',valor:'R$ 100k',publico:true}],pendentes:[]};
+}
+
+function filtrarPublicos(){
+  return {
+    times: db.times.filter(t=> t.publico === true),
+    estadios: db.estadios.filter(e=> e.publico === true),
+    disputas: db.disputas.filter(d=> d.publico === true),
+    leiloes: db.leiloes.filter(l=> l.publico === true),
+    historico: db.historico.filter(h=> h.publico!== false),
+    pendentes: db.pendentes.filter(p=> p.publico === true),
+    adm: db.times.find(t=>t.id==='ADM')
   };
 }
 
 function calcScore(d){return (d.jogadoresCasa?.filter(j=>j.gol).length||0)+' x '+(d.jogadoresFora?.filter(j=>j.gol).length||0);}
 
 function render(){
-  document.getElementById('resumo-times').innerHTML=db.times.filter(t=>t.id!=='ADM').map(t=>`<span class="badge badge-gold">${t.nome} • ${t.elenco.length} jog • ${t.caixa}</span>`).join(' ') + `<br><span class="small">Estádios: ${db.estadios.map(e=>e.nome+' '+e.renda).join(' • ')}</span>`;
+  const f=filtrarPublicos();
+  document.getElementById('resumo-times').innerHTML=f.times.map(t=>`<span class="badge badge-gold">${t.nome} • ${t.elenco.filter(j=>j.publico!==false).length} jog</span>`).join(' ')+`<br><span class="small">Estádios públicos: ${f.estadios.map(e=>e.nome+' '+e.renda).join(' • ')||'nenhum'}</span><br><span class="small" style="color:var(--green)">Mostrando só ${f.disputas.length} disputas públicas, ${f.leiloes.length} leilões públicos de ${db.disputas.length} totais</span>`;
 
-  // DISPUTAS
-  document.getElementById('feed-disputas').innerHTML=db.disputas.map(d=>{
+  document.getElementById('feed-disputas').innerHTML=f.disputas.length?f.disputas.map(d=>{
     const placar=calcScore(d);
-    return `<div class="card"><div style="display:flex;justify-content:space-between"><span class="badge badge-gold">${d.comp||'LIGA OURO'}</span><span class="small">${d.estadio}</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0"><div><b>${d.casa}</b><div class="small">Goleiro: ${d.goleiroCasa} 🧤</div></div><div class="placar">${placar}</div><div style="text-align:right"><b>${d.fora}</b><div class="small">Goleiro: ${d.goleiroFora} 🧤</div></div></div><div class="small">Casa: ${d.jogadoresCasa?.map(j=>j.nome+':'+(j.gol?'GOL ⚽':'DEF 🧤')).join(' • ')}<br>Fora: ${d.jogadoresFora?.map(j=>j.nome+':'+(j.gol?'GOL ⚽':'DEF 🧤')).join(' • ')}<br>Mandante ${d.mandante} recebe ${d.estadio}</div></div>`;
-  }).join('');
+    return `<div class="card"><div style="display:flex;justify-content:space-between"><span class="badge badge-gold">${d.comp||'LIGA'}</span><span class="small">${d.estadio}</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0"><div><b>${d.casa}</b><div class="small">Goleiro: ${d.goleiroCasa} 🧤</div></div><div class="placar">${placar}</div><div style="text-align:right"><b>${d.fora}</b><div class="small">Goleiro: ${d.goleiroFora} 🧤</div></div></div><div class="small">Casa: ${d.jogadoresCasa?.map(j=>j.nome+':'+(j.gol?'GOL ⚽':'DEF 🧤')).join(' • ')}<br>Fora: ${d.jogadoresFora?.map(j=>j.nome+':'+(j.gol?'GOL ⚽':'DEF 🧤')).join(' • ')}<br>Mandante ${d.mandante}</div></div>`;
+  }).join(''):'<div class=card><div class=small>Nenhuma disputa pública ainda. Marque como público no ADM.</div></div>';
 
   document.getElementById('feed-inicio').innerHTML=document.getElementById('feed-disputas').innerHTML.slice(0,2000);
 
-  // ELENCOS
-  document.getElementById('feed-elencos').innerHTML=db.times.filter(t=>t.id!=='ADM').map(t=>`<div class="card"><div class="title">${t.nome} • Caixa ${t.caixa}</div><div class="small">${db.estadios.filter(e=>e.time===t.nome).map(e=>e.nome+' • '+e.renda+' '+e.bonus).join(' | ')||'Sem estádio'}</div><div class="elenco-grid" style="margin-top:8px">${t.elenco.map(j=>`<div class="jogador-card"><b>${j.nome}</b><br><span class="small">${j.pos||''} ${j.atq||''}</span><br>${j.geraRenda?`<span class="badge badge-green">Gera ${j.renda||j.rendaPorGol}/gol</span>`:''}</div>`).join('')||'<span class=small>Sem elenco</span>'}</div></div>`).join('');
+  document.getElementById('feed-elencos').innerHTML=f.times.length?f.times.map(t=>`<div class="card"><div class="title">${t.nome}</div><div class="small">${f.estadios.filter(e=>e.time===t.nome).map(e=>e.nome+' • '+e.renda+' '+e.bonus).join(' | ')||'Sem estádio público'}</div><div class="elenco-grid" style="margin-top:8px">${t.elenco.filter(j=>j.publico!==false).map(j=>`<div class="jogador-card"><b>${j.nome}</b><br><span class="small">${j.pos||''} ${j.atq||''}</span><br>${j.geraRenda?`<span class="badge badge-green">Gera ${j.renda||j.rendaPorGol}/gol</span>`:''}</div>`).join('')||'<span class=small>Sem jogadores públicos</span>'}</div></div>`).join(''):'<div class=card><div class=small>Nenhum time público</div></div>';
 
-  // NEGOCIOS - LEILOES
-  document.getElementById('feed-leiloes').innerHTML=db.leiloes.map(l=>{
-    if(l.tipo==='JOGADOR') return `<div class="card"><div><span class="badge badge-green">JOGADOR</span> <b>${l.nome}</b> ${l.geraRenda?`<span class="badge badge-green">Gera ${l.rendaPorGol||l.renda}/gol se fizer gol</span>`:'<span class="badge badge-red">Não gera renda</span>'}<div class="small">${l.inicio} → ${l.final} • ${l.comprador} comprou de ${l.vendedor}</div></div></div>`;
-    else return `<div class="card"><div><span class="badge badge-blue">ESTÁDIO</span> <b>${l.nome}</b> • Renda custom ${l.renda||''} ${l.bonus||''}<div class="small">${l.inicio} → ${l.final} • ${l.comprador} de ${l.vendedor}</div></div></div>`;
-  }).join('')||'<div class=card><div class=small>Sem leilões</div></div>';
+  document.getElementById('feed-leiloes').innerHTML=f.leiloes.length?f.leiloes.map(l=>{
+    if(l.tipo==='JOGADOR') return `<div class="card"><div><span class="badge badge-green">JOGADOR</span> <b>${l.nome}</b> ${l.geraRenda?`<span class="badge badge-green">Gera ${l.rendaPorGol||l.renda}/gol</span>`:'<span class="badge badge-red">Não gera</span>'}<div class="small">${l.inicio} → ${l.final} • ${l.comprador} de ${l.vendedor}</div></div></div>`;
+    else return `<div class="card"><div><span class="badge badge-blue">ESTÁDIO</span> <b>${l.nome}</b> • ${l.renda||''} ${l.bonus||''}<div class="small">${l.inicio} → ${l.final} • ${l.comprador}</div></div></div>`;
+  }).join(''):'<div class=card><div class=small>Nenhum leilão público</div></div>';
 
-  document.getElementById('feed-hist').innerHTML=db.historico.map(h=>`<div style="padding:6px 0;border-bottom:1px solid rgba(255,204,51,.1)"><span class="badge ${h.tipo.includes('VENDA')?'badge-green':h.tipo.includes('DISPENSA')?'badge-red':'badge-blue'}">${h.tipo}</span> <b>${h.jogador}</b><div class="small">${h.de} → ${h.para} • ${h.valor} • ${h.data}</div></div>`).join('')||'<div class=small>Sem transferências</div>';
+  document.getElementById('feed-hist').innerHTML=f.historico.length?f.historico.map(h=>`<div style="padding:6px 0;border-bottom:1px solid rgba(255,204,51,.1)"><span class="badge ${h.tipo.includes('VENDA')?'badge-green':h.tipo.includes('DISPENSA')?'badge-red':'badge-blue'}">${h.tipo}</span> <b>${h.jogador}</b><div class="small">${h.de} → ${h.para} • ${h.valor}</div></div>`).join(''):'<div class=small>Sem transferências públicas</div>';
 
-  const adm=db.times.find(t=>t.id==='ADM');
-  document.getElementById('feed-adm').innerHTML=adm && adm.elenco.length? adm.elenco.map(j=>`<span class="badge badge-red">${j.nome} ${j.pos||''} • disponível</span>`).join(' '):'<span class=small>Nenhum dispensado</span>';
+  const adm=f.adm;
+  const admPublicos=adm?adm.elenco.filter(j=>j.publico!==false):[];
+  document.getElementById('feed-adm').innerHTML=admPublicos.length?admPublicos.map(j=>`<span class="badge badge-red">${j.nome} • disponível</span>`).join(' '):'<span class=small>Nenhum agente livre público (dispensados invisíveis não aparecem)</span>';
 
-  // RANKING
   let art={},def={},bola={},luva={};
-  db.disputas.forEach(d=>{
+  f.disputas.forEach(d=>{
     d.jogadoresCasa?.forEach(j=>{if(j.gol){art[j.nome]=(art[j.nome]||0)+1; bola[j.nome]=(bola[j.nome]||0)+10;}else{const g=d.goleiroFora; def[g]=(def[g]||0)+1; luva[g]=(luva[g]||0)+15;}});
     d.jogadoresFora?.forEach(j=>{if(j.gol){art[j.nome]=(art[j.nome]||0)+1; bola[j.nome]=(bola[j.nome]||0)+10;}else{const g=d.goleiroCasa; def[g]=(def[g]||0)+1; luva[g]=(luva[g]||0)+15;}});
   });
-  document.getElementById('ranking-geral').innerHTML=`<div class="small"><b>Artilharia:</b> ${Object.entries(art).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v).join(' • ')||'-'}<br><b>Defesas (goleiros):</b> ${Object.entries(def).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v).join(' • ')||'-'}<br><b>Bola Ouro:</b> ${Object.entries(bola).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v+' pts').join(' • ')}<br><b>Luva Ouro:</b> ${Object.entries(luva).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v+' pts').join(' • ')}</div>`;
+  document.getElementById('ranking-geral').innerHTML=`<div class="small"><b>Artilharia (só gols públicos):</b> ${Object.entries(art).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v).join(' • ')||'-'}<br><b>Defesas goleiros (só defesas públicas):</b> ${Object.entries(def).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v).join(' • ')||'-'}<br><b>Bola Ouro:</b> ${Object.entries(bola).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v+' pts').join(' • ')}<br><b>Luva Ouro:</b> ${Object.entries(luva).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v+' pts').join(' • ')}</div>`;
 
   document.getElementById('feed-ranking').innerHTML=`
-    <div class="card"><div class="title">⚽ ARTILHARIA</div><div class="small">${Object.entries(art).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`${i+1}. ${k} • ${v} gols`).join('<br>')||'-'}</div></div>
-    <div class="card"><div class="title">🧤 DEFESAS • GOLEIROS</div><div class="small">${Object.entries(def).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`${i+1}. ${k} • ${v} defesas`).join('<br>')||'-'}</div></div>
-    <div class="card"><div class="title">🏟️ ESTÁDIOS • RENDA CUSTOM</div><div class="small">${db.estadios.map(e=>`${e.nome} (${e.time}) • Nível ${e.nivel} • ${e.renda} ${e.bonus}`).join('<br>')}</div></div>
-    <div class="card"><div class="title">💰 JOGADORES QUE GERAM RENDA POR GOL</div><div class="small">${db.times.flatMap(t=>t.elenco.filter(j=>j.geraRenda).map(j=>`${j.nome} (${t.nome}) • ${j.renda||j.rendaPorGol}/gol`)).join('<br>')||'Nenhum • marque no ADM ao criar jogador'}<br><br>${db.leiloes.filter(l=>l.geraRenda).map(l=>`${l.nome} • ${l.rendaPorGol||l.renda}/gol • comprado por ${l.comprador}`).join('<br>')}</div></div>
+    <div class="card"><div class="title">⚽ ARTILHARIA PÚBLICA</div><div class="small">${Object.entries(art).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`${i+1}. ${k} • ${v} gols`).join('<br>')||'-'}</div></div>
+    <div class="card"><div class="title">🧤 DEFESAS PÚBLICAS</div><div class="small">${Object.entries(def).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`${i+1}. ${k} • ${v} defesas`).join('<br>')||'-'}</div></div>
+    <div class="card"><div class="title">🏟️ ESTÁDIOS PÚBLICOS</div><div class="small">${f.estadios.map(e=>`${e.nome} (${e.time}) • Nv${e.nivel} • ${e.renda} ${e.bonus}`).join('<br>')||'-'}</div></div>
   `;
 }
 function switchPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));document.querySelector(`[data-p="${p}"]`).classList.add('active');}
