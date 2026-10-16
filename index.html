@@ -2,50 +2,46 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEF ONLINE • V6 PÚBLICO FILTRADO</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<title>LEF ONLINE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#060912;--card:#101426;--gold:#FFCC33;--gold2:#D4A017;--dim:#7A7A9A;--green:#2ECC71;--red:#FF4D4D;--blue:#4DA3FF}
-body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
-.header{position:sticky;top:0;z-index:50;background:#000;border-bottom:2px solid var(--gold2);padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Cinzel';font-weight:900;color:var(--gold);letter-spacing:3px;font-size:13px}
-.live{font-size:9px;background:var(--green);color:#000;padding:4px 8px;font-weight:800}
-.comps{position:sticky;top:52px;z-index:40;background:#080B18;border-bottom:1.5px solid var(--gold2);display:flex;overflow-x:auto;padding:8px 10px;gap:8px}
-.comp-tab{white-space:nowrap;padding:8px 12px;border:1px solid var(--gold2);font-family:'Cinzel';font-size:9px;color:var(--dim);cursor:pointer}.comp-tab.active{background:var(--gold);color:#000}
-.wrap{max-width:680px;margin:0 auto;padding:10px 10px 90px}
-.card{border:1.5px solid var(--gold2);background:linear-gradient(180deg,#101426,#080B18);margin-bottom:10px;padding:12px;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold2)}
-.badge{font-size:8px;padding:3px 7px;border-radius:10px;font-weight:800;display:inline-block;margin:2px}
-.badge-green{background:var(--green);color:#000}.badge-red{background:var(--red);color:#fff}.badge-blue{background:var(--blue);color:#fff}.badge-gold{background:var(--gold);color:#000}
-.small{font-size:10px;color:var(--dim);line-height:1.4}
-.title{font-family:'Cinzel';font-weight:800;color:var(--gold);font-size:13px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#060912;border-top:2px solid var(--gold2);display:grid;grid-template-columns:repeat(5,1fr);max-width:680px;margin:0 auto;z-index:60}
-.nav-item{padding:10px 2px;text-align:center;color:var(--dim);font-size:8px;cursor:pointer}.nav-item.active{color:var(--gold);background:rgba(255,204,51,.12)}
+:root{--bg:#060912;--card:#11152A;--gold:#FFCC33;--gold2:#D4A017;--dim:#8A8AA8;--green:#2ECC71;--red:#FF4D4D;--blue:#4DA3FF}
+body{background:#060912;color:#F0EAD6;font-family:'Inter',sans-serif;overflow-x:hidden}
+.header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--gold2);padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Cinzel';font-weight:900;color:var(--gold);letter-spacing:4px;font-size:14px}
+.live{font-size:8px;background:var(--gold);color:#000;padding:5px 10px;font-weight:900;letter-spacing:1px;font-family:'Cinzel'}
+.comps{position:sticky;top:48px;z-index:40;background:#090C1C;border-bottom:1px solid rgba(212,160,23,.3);display:flex;overflow-x:auto;padding:10px 12px;gap:8px;scrollbar-width:none}
+.comps::-webkit-scrollbar{display:none}
+.comp-tab{white-space:nowrap;padding:9px 14px;border:1px solid rgba(212,160,23,.4);font-family:'Cinzel';font-size:9px;font-weight:700;color:var(--dim);cursor:pointer;transition:.2s}.comp-tab.active{background:var(--gold);color:#000;border-color:var(--gold)}
+.wrap{max-width:680px;margin:0 auto;padding:12px 12px 95px}
+.card{border:1px solid rgba(212,160,23,.35);background:linear-gradient(180deg,#12162E 0%,#0B0E1E 100%);margin-bottom:12px;padding:14px;border-radius:4px;position:relative}
+.card-gol{border-left:3px solid var(--gold2)}
+.badge{font-size:7px;padding:3px 8px;border-radius:20px;font-weight:900;letter-spacing:.5px;display:inline-block;font-family:'Cinzel'}
+.badge-gold{background:var(--gold);color:#000}.badge-green{background:var(--green);color:#000}.badge-red{background:var(--red);color:#fff}.badge-blue{background:var(--blue);color:#fff}
+.small{font-size:11px;color:var(--dim);line-height:1.5}
+.title{font-family:'Cinzel';font-weight:800;color:var(--gold);font-size:12px;letter-spacing:1.5px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#070A14;border-top:1.5px solid var(--gold2);display:grid;grid-template-columns:repeat(5,1fr);max-width:680px;margin:0 auto;z-index:60}
+.nav-item{padding:12px 2px;text-align:center;color:var(--dim);font-size:8px;font-weight:700;cursor:pointer;letter-spacing:.5px}.nav-item.active{color:var(--gold);background:rgba(255,204,51,.08)}
 .page{display:none}.page.active{display:block}
-.elenco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
-.jogador-card{border:1px solid rgba(255,204,51,.2);padding:6px;background:rgba(0,0,0,.3);font-size:10px}
-.placar{font-family:'Cinzel';font-weight:900;font-size:20px;color:#fff}
+.placar{font-family:'Cinzel';font-weight:900;font-size:26px;color:#fff;letter-spacing:2px}
+.time-nome{font-family:'Cinzel';font-weight:800;font-size:13px;color:#fff}
+.goleiro{font-size:10px;color:var(--dim);margin-top:3px}
+.jog-list{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,204,51,.12);font-size:11px;line-height:1.6}
+.elenco-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.jogador-card{border:1px solid rgba(255,204,51,.15);padding:10px;background:rgba(0,0,0,.25);border-radius:3px}
 </style>
 </head>
 <body>
-<div class="header"><div class="logo">LEF ONLINE • V6</div><div class="live">AO VIVO - SÓ PÚBLICOS</div></div>
+<div class="header"><div class="logo">LEF ONLINE</div><div class="live">AO VIVO</div></div>
 <div class="comps"><div class="comp-tab active" data-c="all">TODAS</div><div class="comp-tab" data-c="OURO">LIGA OURO</div><div class="comp-tab" data-c="PRATA">LIGA PRATA</div><div class="comp-tab" data-c="COPA">COPA LEF</div><div class="comp-tab" data-c="LIBERTA">LIBERTADORES</div></div>
 <div class="wrap">
 
-<div id="page-inicio" class="page active">
-  <div class="card"><div class="title">🏆 LEF ONLINE</div><div class="small">Só aparece aqui o que você marcou como 👁️ PÚBLICO no ADM V6. Invisíveis ficam ocultos.</div><div id="resumo-times" class="small" style="margin-top:8px"></div></div>
-  <div id="feed-inicio"></div>
-</div>
+<div id="page-inicio" class="page active"><div id="feed-inicio"></div></div>
 <div id="page-disputas" class="page"><div id="feed-disputas"></div></div>
-<div id="page-elencos" class="page"><div class="card"><div class="title">👥 ELENCOS PÚBLICOS</div><div class="small">Só times e jogadores marcados como públicos</div></div><div id="feed-elencos"></div></div>
-<div id="page-negocios" class="page">
-  <div class="card"><div class="title">💼 LEILÕES PÚBLICOS + TRANSFERÊNCIAS PÚBLICAS</div></div>
-  <div id="feed-leiloes"></div>
-  <div class="card"><div class="title">🔄 TRANSFERÊNCIAS PÚBLICAS</div><div id="feed-hist"></div></div>
-  <div class="card"><div class="title">📦 AGENTES LIVRES (ADM) PÚBLICOS</div><div id="feed-adm"></div></div>
-</div>
-<div id="page-ranking" class="page"><div class="card"><div class="title">📊 RANKING SÓ DE DISPUTAS PÚBLICAS</div><div id="ranking-geral"></div></div><div id="feed-ranking"></div></div>
+<div id="page-elencos" class="page"><div id="feed-elencos"></div></div>
+<div id="page-negocios" class="page"><div id="feed-leiloes"></div><div id="feed-hist"></div></div>
+<div id="page-ranking" class="page"><div id="ranking-geral"></div><div id="feed-ranking"></div></div>
 
 </div>
 <div class="nav">
@@ -59,63 +55,64 @@ body{background:var(--bg);color:#F0EAD6;font-family:'Inter',sans-serif}
 <script>
 let db=JSON.parse(localStorage.getItem('lef_v6')||'null');
 if(!db){
-  db={times:[{id:'ADM',nome:'ADM - INATIVOS',caixa:'R$ 0',elenco:[],publico:false},{id:'TIGRES',nome:'TIGRES FC',caixa:'R$ 500.000',elenco:[{nome:'Raykon',pos:'ATACANTE',atq:'92',geraRenda:true,renda:'R$ 5.000',publico:true},{nome:'Colly',pos:'GOLEIRO',publico:true}],publico:true}],estadios:[{time:'TIGRES FC',nome:'Arena Tigres',nivel:4,renda:'R$ 42.300',bonus:'+25%',publico:true}],disputas:[{casa:'TIGRES FC',fora:'LOBOS FC',goleiroCasa:'Colly',goleiroFora:'Rafa',mandante:'TIGRES FC',estadio:'Arena Tigres • R$ 42.300',jogadoresCasa:[{nome:'Raykon',gol:true}],jogadoresFora:[{nome:'Marcos',gol:true}],publico:true}],leiloes:[{tipo:'JOGADOR',nome:'L. Ferraz',inicio:'R$ 50k',final:'R$ 210k',comprador:'TIGRES FC',vendedor:'LOBOS FC',geraRenda:true,rendaPorGol:'R$ 5k',publico:true}],historico:[{tipo:'VENDA',jogador:'Raykon',de:'TIGRES FC',para:'LOBOS FC',valor:'R$ 100k',publico:true}],pendentes:[]};
+  db={times:[{id:'ADM',nome:'ADM - INATIVOS',caixa:'R$ 0',elenco:[],publico:false},{id:'TIGRES',nome:'TIGRES FC',caixa:'R$ 500.000',elenco:[{nome:'Raykon',pos:'ATACANTE',atq:'92',geraRenda:true,renda:'R$ 5.000',publico:true},{nome:'Colly',pos:'GOLEIRO',publico:true}],publico:true},{id:'LOBOS',nome:'LOBOS FC',caixa:'R$ 400.000',elenco:[{nome:'Marcos',pos:'ATACANTE',publico:true},{nome:'Rafa',pos:'GOLEIRO',publico:true}],publico:true}],estadios:[{time:'TIGRES FC',nome:'Arena Tigres',nivel:4,renda:'R$ 42.300',bonus:'+25%',publico:true}],disputas:[{casa:'TIGRES FC',fora:'LOBOS FC',goleiroCasa:'Colly',goleiroFora:'Rafa',mandante:'TIGRES FC',estadio:'Arena Tigres • R$ 42.300',jogadoresCasa:[{nome:'Raykon',gol:true}],jogadoresFora:[{nome:'Marcos',gol:true}],comp:'LIGA OURO',publico:true}],leiloes:[{tipo:'JOGADOR',nome:'L. Ferraz',inicio:'R$ 50k',final:'R$ 210k',comprador:'TIGRES FC',vendedor:'LOBOS FC',geraRenda:true,rendaPorGol:'R$ 5k',publico:true}],historico:[],pendentes:[]};
 }
-
-function filtrarPublicos(){
-  return {
-    times: db.times.filter(t=> t.publico === true),
-    estadios: db.estadios.filter(e=> e.publico === true),
-    disputas: db.disputas.filter(d=> d.publico === true),
-    leiloes: db.leiloes.filter(l=> l.publico === true),
-    historico: db.historico.filter(h=> h.publico!== false),
-    pendentes: db.pendentes.filter(p=> p.publico === true),
-    adm: db.times.find(t=>t.id==='ADM')
-  };
-}
-
-function calcScore(d){return (d.jogadoresCasa?.filter(j=>j.gol).length||0)+' x '+(d.jogadoresFora?.filter(j=>j.gol).length||0);}
-
+function filtrar(){return{times:db.times.filter(t=>t.publico===true),estadios:db.estadios.filter(e=>e.publico===true),disputas:db.disputas.filter(d=>d.publico===true),leiloes:db.leiloes.filter(l=>l.publico===true),historico:db.historico.filter(h=>h.publico!==false)}}
+function score(d){return (d.jogadoresCasa?.filter(j=>j.gol).length||0)+' x '+(d.jogadoresFora?.filter(j=>j.gol).length||0);}
 function render(){
-  const f=filtrarPublicos();
-  document.getElementById('resumo-times').innerHTML=f.times.map(t=>`<span class="badge badge-gold">${t.nome} • ${t.elenco.filter(j=>j.publico!==false).length} jog</span>`).join(' ')+`<br><span class="small">Estádios públicos: ${f.estadios.map(e=>e.nome+' '+e.renda).join(' • ')||'nenhum'}</span><br><span class="small" style="color:var(--green)">Mostrando só ${f.disputas.length} disputas públicas, ${f.leiloes.length} leilões públicos de ${db.disputas.length} totais</span>`;
+  const f=filtrar();
+  const htmlDisputas=f.disputas.length?f.disputas.map(d=>`
+    <div class="card card-gol">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <span class="badge badge-gold">${d.comp||'LIGA'}</span>
+        <span class="small">${d.estadio}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px">
+        <div><div class="time-nome">${d.casa}</div><div class="goleiro">Goleiro: ${d.goleiroCasa} 🧤</div></div>
+        <div class="placar">${score(d)}</div>
+        <div style="text-align:right"><div class="time-nome">${d.fora}</div><div class="goleiro">Goleiro: ${d.goleiroFora} 🧤</div></div>
+      </div>
+      <div class="jog-list">
+        <div><b style="color:#fff">${d.casa}:</b> ${d.jogadoresCasa?.map(j=>`${j.nome}: ${j.gol?'GOL ⚽':'DEFESA 🧤'}`).join(' • ')}</div>
+        <div style="margin-top:4px"><b style="color:#fff">${d.fora}:</b> ${d.jogadoresFora?.map(j=>`${j.nome}: ${j.gol?'GOL ⚽':'DEFESA 🧤'}`).join(' • ')}</div>
+        <div class="small" style="margin-top:8px">Mandante: ${d.mandante}</div>
+      </div>
+    </div>`).join(''):`<div class="card"><div class="small" style="text-align:center;padding:20px">Nenhuma disputa no momento</div></div>`;
 
-  document.getElementById('feed-disputas').innerHTML=f.disputas.length?f.disputas.map(d=>{
-    const placar=calcScore(d);
-    return `<div class="card"><div style="display:flex;justify-content:space-between"><span class="badge badge-gold">${d.comp||'LIGA'}</span><span class="small">${d.estadio}</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin:8px 0"><div><b>${d.casa}</b><div class="small">Goleiro: ${d.goleiroCasa} 🧤</div></div><div class="placar">${placar}</div><div style="text-align:right"><b>${d.fora}</b><div class="small">Goleiro: ${d.goleiroFora} 🧤</div></div></div><div class="small">Casa: ${d.jogadoresCasa?.map(j=>j.nome+':'+(j.gol?'GOL ⚽':'DEF 🧤')).join(' • ')}<br>Fora: ${d.jogadoresFora?.map(j=>j.nome+':'+(j.gol?'GOL ⚽':'DEF 🧤')).join(' • ')}<br>Mandante ${d.mandante}</div></div>`;
-  }).join(''):'<div class=card><div class=small>Nenhuma disputa pública ainda. Marque como público no ADM.</div></div>';
+  document.getElementById('feed-disputas').innerHTML=htmlDisputas;
+  document.getElementById('feed-inicio').innerHTML=htmlDisputas;
 
-  document.getElementById('feed-inicio').innerHTML=document.getElementById('feed-disputas').innerHTML.slice(0,2000);
+  document.getElementById('feed-elencos').innerHTML=f.times.map(t=>`
+    <div class="card">
+      <div class="title">${t.nome}</div>
+      <div class="small" style="margin-top:6px">${f.estadios.filter(e=>e.time===t.nome).map(e=>`🏟️ ${e.nome} • ${e.renda} ${e.bonus}`).join('<br>')||''}</div>
+      <div class="elenco-grid">${t.elenco.filter(j=>j.publico!==false).map(j=>`
+        <div class="jogador-card"><b style="color:#fff;font-size:12px">${j.nome}</b><br><span class="small">${j.pos||''} ${j.atq?`• ATQ ${j.atq}`:''}</span><br>${j.geraRenda?`<span class="badge badge-green" style="margin-top:6px">💰 ${j.renda||j.rendaPorGol}/gol</span>`:''}</div>`).join('')}</div>
+    </div>`).join('')||'<div class="card"><div class="small">Nenhum elenco público</div></div>';
 
-  document.getElementById('feed-elencos').innerHTML=f.times.length?f.times.map(t=>`<div class="card"><div class="title">${t.nome}</div><div class="small">${f.estadios.filter(e=>e.time===t.nome).map(e=>e.nome+' • '+e.renda+' '+e.bonus).join(' | ')||'Sem estádio público'}</div><div class="elenco-grid" style="margin-top:8px">${t.elenco.filter(j=>j.publico!==false).map(j=>`<div class="jogador-card"><b>${j.nome}</b><br><span class="small">${j.pos||''} ${j.atq||''}</span><br>${j.geraRenda?`<span class="badge badge-green">Gera ${j.renda||j.rendaPorGol}/gol</span>`:''}</div>`).join('')||'<span class=small>Sem jogadores públicos</span>'}</div></div>`).join(''):'<div class=card><div class=small>Nenhum time público</div></div>';
+  document.getElementById('feed-leiloes').innerHTML=f.leiloes.length?f.leiloes.map(l=>`
+    <div class="card">
+      <div><span class="badge ${l.tipo==='JOGADOR'?'badge-green':'badge-blue'}">${l.tipo}</span> <b style="color:#fff;margin-left:6px">${l.nome}</b> ${l.geraRenda?`<span class="badge badge-green">Gera ${l.rendaPorGol}/gol</span>`:''}</div>
+      <div class="small" style="margin-top:8px">${l.inicio} → <b style="color:var(--gold)">${l.final}</b> • ${l.comprador} <span class="small">comprou de ${l.vendedor}</span>${l.renda?`<br>🏟️ Renda: ${l.renda} ${l.bonus||''}`:''}</div>
+    </div>`).join(''):'<div class="card"><div class="small">Nenhum leilão</div></div>';
 
-  document.getElementById('feed-leiloes').innerHTML=f.leiloes.length?f.leiloes.map(l=>{
-    if(l.tipo==='JOGADOR') return `<div class="card"><div><span class="badge badge-green">JOGADOR</span> <b>${l.nome}</b> ${l.geraRenda?`<span class="badge badge-green">Gera ${l.rendaPorGol||l.renda}/gol</span>`:'<span class="badge badge-red">Não gera</span>'}<div class="small">${l.inicio} → ${l.final} • ${l.comprador} de ${l.vendedor}</div></div></div>`;
-    else return `<div class="card"><div><span class="badge badge-blue">ESTÁDIO</span> <b>${l.nome}</b> • ${l.renda||''} ${l.bonus||''}<div class="small">${l.inicio} → ${l.final} • ${l.comprador}</div></div></div>`;
-  }).join(''):'<div class=card><div class=small>Nenhum leilão público</div></div>';
-
-  document.getElementById('feed-hist').innerHTML=f.historico.length?f.historico.map(h=>`<div style="padding:6px 0;border-bottom:1px solid rgba(255,204,51,.1)"><span class="badge ${h.tipo.includes('VENDA')?'badge-green':h.tipo.includes('DISPENSA')?'badge-red':'badge-blue'}">${h.tipo}</span> <b>${h.jogador}</b><div class="small">${h.de} → ${h.para} • ${h.valor}</div></div>`).join(''):'<div class=small>Sem transferências públicas</div>';
-
-  const adm=f.adm;
-  const admPublicos=adm?adm.elenco.filter(j=>j.publico!==false):[];
-  document.getElementById('feed-adm').innerHTML=admPublicos.length?admPublicos.map(j=>`<span class="badge badge-red">${j.nome} • disponível</span>`).join(' '):'<span class=small>Nenhum agente livre público (dispensados invisíveis não aparecem)</span>';
+  document.getElementById('feed-hist').innerHTML=f.historico.length?`<div class="card"><div class="title">🔄 TRANSFERÊNCIAS</div><div style="margin-top:10px">${f.historico.map(h=>`<div style="padding:10px 0;border-bottom:1px solid rgba(255,204,51,.1)"><span class="badge ${h.tipo.includes('VENDA')?'badge-green':'badge-red'}">${h.tipo}</span> <b style="color:#fff">${h.jogador}</b><div class="small">${h.de} → ${h.para} • ${h.valor}</div></div>`).join('')}</div></div>`:'';
 
   let art={},def={},bola={},luva={};
   f.disputas.forEach(d=>{
-    d.jogadoresCasa?.forEach(j=>{if(j.gol){art[j.nome]=(art[j.nome]||0)+1; bola[j.nome]=(bola[j.nome]||0)+10;}else{const g=d.goleiroFora; def[g]=(def[g]||0)+1; luva[g]=(luva[g]||0)+15;}});
-    d.jogadoresFora?.forEach(j=>{if(j.gol){art[j.nome]=(art[j.nome]||0)+1; bola[j.nome]=(bola[j.nome]||0)+10;}else{const g=d.goleiroCasa; def[g]=(def[g]||0)+1; luva[g]=(luva[g]||0)+15;}});
+    d.jogadoresCasa?.forEach(j=>{if(j.gol){art[j.nome]=(art[j.nome]||0)+1;bola[j.nome]=(bola[j.nome]||0)+10;}else{const g=d.goleiroFora;def[g]=(def[g]||0)+1;luva[g]=(luva[g]||0)+15;}});
+    d.jogadoresFora?.forEach(j=>{if(j.gol){art[j.nome]=(art[j.nome]||0)+1;bola[j.nome]=(bola[j.nome]||0)+10;}else{const g=d.goleiroCasa;def[g]=(def[g]||0)+1;luva[g]=(luva[g]||0)+15;}});
   });
-  document.getElementById('ranking-geral').innerHTML=`<div class="small"><b>Artilharia (só gols públicos):</b> ${Object.entries(art).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v).join(' • ')||'-'}<br><b>Defesas goleiros (só defesas públicas):</b> ${Object.entries(def).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v).join(' • ')||'-'}<br><b>Bola Ouro:</b> ${Object.entries(bola).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v+' pts').join(' • ')}<br><b>Luva Ouro:</b> ${Object.entries(luva).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+': '+v+' pts').join(' • ')}</div>`;
-
+  document.getElementById('ranking-geral').innerHTML=`<div class="card"><div class="title">📊 RANKING</div></div>`;
   document.getElementById('feed-ranking').innerHTML=`
-    <div class="card"><div class="title">⚽ ARTILHARIA PÚBLICA</div><div class="small">${Object.entries(art).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`${i+1}. ${k} • ${v} gols`).join('<br>')||'-'}</div></div>
-    <div class="card"><div class="title">🧤 DEFESAS PÚBLICAS</div><div class="small">${Object.entries(def).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`${i+1}. ${k} • ${v} defesas`).join('<br>')||'-'}</div></div>
-    <div class="card"><div class="title">🏟️ ESTÁDIOS PÚBLICOS</div><div class="small">${f.estadios.map(e=>`${e.nome} (${e.time}) • Nv${e.nivel} • ${e.renda} ${e.bonus}`).join('<br>')||'-'}</div></div>
+    <div class="card"><div class="title">⚽ ARTILHARIA</div><div class="small" style="margin-top:10px">${Object.entries(art).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,204,51,.08)"><span>${i+1}. <b style="color:#fff">${k}</b></span><span class="badge badge-gold">${v} gols</span></div>`).join('')||'Nenhum gol'}</div></div>
+    <div class="card"><div class="title">🧤 DEFESAS</div><div class="small" style="margin-top:10px">${Object.entries(def).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>`<div style="display:flex;justify-content:space-between;padding:6px 0"><span>${i+1}. <b style="color:#fff">${k}</b></span><span class="badge badge-blue">${v} defesas</span></div>`).join('')||'Nenhuma defesa'}</div></div>
+    <div class="card"><div class="title">🏟️ ESTÁDIOS</div><div class="small" style="margin-top:10px">${f.estadios.map(e=>`• ${e.nome} (${e.time}) • Nv${e.nivel} • ${e.renda}`).join('<br>')||'Nenhum'}</div></div>
   `;
 }
 function switchPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));document.querySelector(`[data-p="${p}"]`).classList.add('active');}
 document.querySelectorAll('.nav-item').forEach(e=>e.addEventListener('click',()=>switchPage(e.dataset.p)));
-document.querySelectorAll('.comp-tab').forEach(e=>e.addEventListener('click',()=>{document.querySelectorAll('.comp-tab').forEach(x=>x.classList.remove('active'));e.classList.add('active');}));
+document.querySelectorAll('.comp-tab').forEach(e=>e.addEventListener('click',()=>{document.querySelectorAll('.comp-tab').forEach(x=>x.classList.remove('active'));e.classList.add('active');const c=e.dataset.c;if(c==='all'){render();return}const f=filtrar();const filtered=f.disputas.filter(d=>(d.comp||'').includes(c));document.getElementById('feed-disputas').innerHTML=filtered.length?filtered.map(d=>`<div class="card card-gol"><div class="time-nome">${d.casa} ${score(d)} ${d.fora}</div></div>`).join(''):'<div class=card><div class=small>Nenhuma disputa nessa liga</div></div>'}));
 render();
 </script>
 </body>
