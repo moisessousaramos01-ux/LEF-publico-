@@ -1,118 +1,73 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LEF OFICIAL</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L.E.F - Liga</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-body{background:#f5f7fb; overflow-x:hidden}
-#welcome{
-  height:100vh; background: radial-gradient(ellipse at center, #101a2e 0%, #05070a 70%);
-  color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
-  position:relative; overflow:hidden;
-}
-#welcome::before{
-  content:''; position:absolute; width:600px; height:600px;
-  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%);
-  animation: pulseGlow 4s ease-in-out infinite;
-}
-@keyframes pulseGlow{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.2);opacity:0.8}}
-.logo-text{
-  font-size:80px; font-weight:900; letter-spacing:12px;
-  background: linear-gradient(180deg, #f9e7a0, #d4af37, #8a6d12);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  filter: drop-shadow(0 0 20px rgba(212,175,55,0.5));
-  animation: fadeDown 1.2s ease-out, shine 3s infinite;
-}
-@keyframes fadeDown{from{opacity:0; transform:translateY(-40px)}to{opacity:1; transform:translateY(0)}}
-@keyframes shine{0%,100%{filter:brightness(1)}50%{filter:brightness(1.3)}}
-#welcome h1{
-  margin-top:20px; font-size:32px; letter-spacing:1px; font-weight:800;
-  animation: fadeUp 1.2s ease-out 0.3s both;
-}
-#welcome h1 span{
-  color:inherit; cursor:text; border:none; text-decoration:none;
-  user-select:none; -webkit-tap-highlight-color:transparent;
-}
-@keyframes fadeUp{from{opacity:0; transform:translateY(30px)}to{opacity:1; transform:translateY(0)}}
-.btn-visit{
-  margin-top:35px; padding:16px 56px; background: linear-gradient(135deg, #00ff88, #00cc6a);
-  border:none; border-radius:30px; font-size:18px; font-weight:bold; cursor:pointer; color:black;
-  box-shadow:0 0 25px rgba(0,255,136,0.4); animation: fadeUp 1.2s ease-out 0.6s both, btnPulse 2s infinite 2s;
-}
-@keyframes btnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05); box-shadow:0 0 35px rgba(0,255,136,0.7)}}
-.sub{margin-top:16px; opacity:0.35; font-size:11px; letter-spacing:3px; animation: fadeUp 1.2s ease-out 0.9s both}
-header{background:#0b0f1a;color:white;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
-nav{display:flex;gap:8px;padding:15px;overflow-x:auto;background:#f5f7fb}
-nav button{padding:8px 16px;border-radius:20px;border:none;background:white;font-weight:bold;cursor:pointer;text-transform:uppercase;font-size:11px;box-shadow:0 1px 2px rgba(0,0,0,0.08)}
-nav button.active{background:#0b0f1a;color:white}
-.card{background:white;padding:15px;border-radius:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
-.btn-add{padding:10px 15px;background:#00ff88;border:none;border-radius:8px;font-weight:bold;margin-bottom:15px;cursor:pointer}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:999}
-.modal-box{background:white;padding:28px;border-radius:16px;width:320px;color:black}
-.modal-box input{width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #ccc}
+body{background:#070a12;color:#eef0ff}
+#intro{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(800px at 50% 20%,#1a1f3a,#070a12)}
+#lef{font-size:110px;font-weight:900;color:#ffcc00;letter-spacing:18px}
+#entrarBtn{padding:16px 80px;border-radius:50px;background:#ffcc00;color:#000;font-weight:900;font-size:18px;border:none;cursor:pointer;margin-top:10px}
+#app{display:none;max-width:1250px;margin:auto;padding:16px}
+.top{background:#101427;border:1px solid #222a4a;padding:12px 16px;border-radius:16px}
+.temporada{font-size:28px;font-weight:900;color:#ffcc00}
+.tabs{display:flex;gap:8px;margin:16px 0;overflow-x:auto}
+.tab{padding:10px 18px;border-radius:30px;background:#101427;border:1px solid #222a4a;cursor:pointer;white-space:nowrap;font-weight:600}
+.tab.active{background:#ffcc00;color:#000}
+.card{background:#101427;border:1px solid #222a4a;border-radius:18px;padding:14px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.badge{background:#ffcc00;color:#000;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:800}
+.badge2{background:#1a1f3a;border:1px solid #2a335a;padding:3px 8px;border-radius:8px;font-size:11px;color:#8ea0ff}
+.badgeGreen{background:#00e676;color:#000;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:800}
+.playerLine{border-left:3px solid #ffcc00;padding-left:10px;margin-top:10px;background:#0b0e1b;border-radius:0 10px 10px 0;padding:8px 10px}
 </style>
 </head>
 <body>
-<div id="welcome">
-  <div class="logo-text">LEF</div>
-  <h1>BEM VINDO AO <span id="secretTrigger">MEU</span> SITE!</h1>
-  <button class="btn-visit" onclick="entrarComo('public')">VISITAR</button>
-  <div class="sub">LIGA ELITE FUTEBOL • 26/27</div>
+<div id="intro">
+<div id="lef">LEF</div>
+<button id="entrarBtn" onclick="document.getElementById('intro').style.display='none';document.getElementById('app').style.display='block';render()">ENTRAR</button>
 </div>
-<div id="app" style="display:none">
-  <header>
-    <div style="display:flex;align-items:center;gap:10"><div style="background:linear-gradient(135deg,#d4af37,#8a6d12);color:black;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900">LEF</div><b id="header-title">LEF</b></div>
-    <button onclick="voltar()" style="background:transparent;color:white;border:1px solid rgba(255,255,255,0.3);padding:6px 12px;border-radius:8px">Sair</button>
-  </header>
-  <nav>
-    <button onclick="setAba('times')" id="btn-times" class="active">TIMES</button>
-    <button onclick="setAba('estadios')" id="btn-estadios">ESTÁDIOS</button>
-    <button onclick="setAba('jogadores')" id="btn-jogadores">JOGADORES</button>
-    <button onclick="setAba('comps')" id="btn-comps">COMPETIÇÕES</button>
-    <button onclick="setAba('jogos')" id="btn-jogos">JOGOS</button>
-    <button onclick="setAba('ranking')" id="btn-ranking">RANKING</button>
-  </nav>
-  <main style="padding:15px" id="conteudo"></main>
+
+<div id="app">
+<div class="top"><div class="temporada" id="txtTemp">TEMPORADA I</div></div>
+<div class="tabs">
+<div class="tab active" onclick="trocaTab('times')">TIMES</div>
+<div class="tab" onclick="trocaTab('empresas')">EMPRESAS</div>
+<div class="tab" onclick="trocaTab('comp')">COMPETIÇÕES</div>
+<div class="tab" onclick="trocaTab('ranking')">RANKING</div>
+<div class="tab" onclick="trocaTab('mercado')">MERCADO</div>
 </div>
-<div id="loginModal" class="modal" style="display:none">
-  <div class="modal-box">
-    <h3>ACESSO ADM</h3>
-    <input id="user" placeholder="Usuário">
-    <input id="pass" type="password" placeholder="Senha">
-    <button onclick="loginADM()" style="width:100%;margin-top:15px;padding:12px;background:black;color:white;border-radius:8px;border:none;font-weight:bold">ENTRAR</button>
-    <button onclick="fecharLogin()" style="width:100%;margin-top:8px;padding:8px;background:transparent;border:none">fechar</button>
-  </div>
+
+<div id="tab-times"><div id="listaTimes" class="grid"></div></div>
+<div id="tab-empresas" style="display:none"><div id="listaEmpresas" class="grid"></div></div>
+<div id="tab-comp" style="display:none"><div id="listaComp" class="grid"></div></div>
+<div id="tab-ranking" style="display:none"><div class="grid"><div class="card"><h3 style="color:#ffcc00">Empresas Mais Ricas</h3><div id="rankEmpresas"></div></div><div class="card"><h3 style="color:#ffcc00">Jogadores Mais Rentáveis</h3><div id="rankJogadores"></div></div><div class="card"><h3 style="color:#ff2a2a">Falidas / LEF</h3><div id="rankFalidas"></div></div></div></div>
+<div id="tab-mercado" style="display:none"><div id="listaMercado" class="grid"></div></div>
 </div>
+
 <script>
-const SUPABASE_URL = 'https://uwwpeegyuslbhqhwcets.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_7dYLxZX5nNm2aQgekPtYmQ_b8XtzDjR';
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-let modo='public', aba='times', dados={teams:[], stadiums:[], players:[], comps:[], matches:[]};
-let clicksSecret=0, timerSecret=null;
-document.getElementById('secretTrigger').addEventListener('click', ()=>{
-  clicksSecret++; clearTimeout(timerSecret);
-  if(clicksSecret>=3){ abrirLogin(); clicksSecret=0; }
-  timerSecret=setTimeout(()=>clicksSecret=0, 1500);
-});
-function abrirLogin(){document.getElementById('loginModal').style.display='flex'}
-function fecharLogin(){document.getElementById('loginModal').style.display='none'}
-function voltar(){document.getElementById('welcome').style.display='flex';document.getElementById('app').style.display='none'}
-function entrarComo(t){modo=t;document.getElementById('welcome').style.display='none';document.getElementById('app').style.display='block';document.getElementById('header-title').innerText=t==='admin'?'LEF - MODO ADM':'LEF';carregarTudo()}
-function loginADM(){const u=document.getElementById('user').value, p=document.getElementById('pass').value; if(u==='lef'&&p==='lef2026'){modo='admin';fecharLogin();entrarComo('admin')}else alert('Erro! Use lef / lef2026')}
-async function carregarTudo(){const t=await supabaseClient.from('teams').select('*').order('name');const s=await supabaseClient.from('stadiums').select('*, teams(name)');const p=await supabaseClient.from('players').select('*, teams(name)').order('goals',{ascending:false});const c=await supabaseClient.from('competitions').select('*');const m=await supabaseClient.from('matches').select('*').order('played_at',{ascending:false});dados.teams=t.data||[];dados.stadiums=s.data||[];dados.players=p.data||[];dados.comps=c.data||[];dados.matches=m.data||[];render()}
-function setAba(n){aba=n;document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));document.getElementById('btn-'+n).classList.add('active');render()}
-function render(){const div=document.getElementById('conteudo');let h='';if(aba==='times'){h+=`<h2>Times (${dados.teams.length})</h2>`;if(modo==='admin')h+=`<button class="btn-add" onclick="addTime()">+ Novo Time</button>`;dados.teams.forEach(t=>{h+=`<div class="card"><span><b>${t.name}</b> - R$ ${(t.balance/1000000).toFixed(1)}M</span>${modo==='admin'?`<span><button onclick="editTime('${t.id}','${t.name}')">Editar</button> <button onclick="delTime('${t.id}')">X</button></span>`:''}</div>`})}if(aba==='estadios'){h+=`<h2>Estádios</h2>`;if(modo==='admin')h+=`<button class="btn-add" onclick="addEstadio()">+ Novo Estádio</button>`;dados.stadiums.forEach(s=>{h+=`<div class="card" style="flex-direction:column;align-items:flex-start"><b>${s.name}</b><span>${s.teams?.name} - Nível ${s.level} | ${s.capacity} | R$ ${s.revenue_per_game} | Rating ${s.rating}</span></div>`})}if(aba==='jogadores'){h+=`<h2>Jogadores</h2>`;if(modo==='admin')h+=`<button class="btn-add" onclick="addJogador()">+ Novo Jogador</button>`;dados.players.forEach(p=>{h+=`<div class="card"><span>${p.name} - ${p.position} - ${p.teams?.name} | G:${p.goals} D:${p.saves}</span>${modo==='admin'?`<button onclick="editJogador('${p.id}',${p.goals},${p.saves})">Editar</button>`:''}</div>`})}if(aba==='comps'){h+=`<h2>Competições</h2>`;if(modo==='admin')h+=`<button class="btn-add" onclick="addComp()">+ Nova Competição</button>`;dados.comps.forEach(c=>{h+=`<div class="card"><b>${c.name}</b> - ${c.type} ${c.has_two_legs?'IDA E VOLTA':''}</div>`})}if(aba==='jogos'){h+=`<h2>Jogos</h2>`;if(modo==='admin')h+=`<button class="btn-add" onclick="addJogo()">+ Lançar Jogo</button>`;dados.matches.forEach(m=>{h+=`<div class="card">${m.home_team?.substring(0,4)} ${m.home_goals} x ${m.away_goals} ${m.away_team?.substring(0,4)} ${m.is_finished?'✅':''}</div>`})}if(aba==='ranking'){const arts=[...dados.players].sort((a,b)=>b.goals-a.goals).slice(0,10);const defs=[...dados.players].sort((a,b)=>b.saves-a.saves).slice(0,10);h+=`<h2>Ranking</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="card" style="flex-direction:column"><h3>Artilheiros</h3>${arts.map((p,i)=>`<div>${i+1}. ${p.name} - ${p.goals}</div>`).join('')}</div><div class="card" style="flex-direction:column"><h3>Defesas</h3>${defs.map((p,i)=>`<div>${i+1}. ${p.name} - ${p.saves}</div>`).join('')}</div></div>`}div.innerHTML=h}
-async function addTime(){const n=prompt('Nome do time:');if(n){await supabaseClient.from('teams').insert({name:n});carregarTudo()}}
-async function editTime(id,old){const n=prompt('Novo nome:',old);if(n){await supabaseClient.from('teams').update({name:n}).eq('id',id);carregarTudo()}}
-async function delTime(id){if(confirm('Apagar?')){await supabaseClient.from('teams').delete().eq('id',id);carregarTudo()}}
-async function addEstadio(){const team_id=prompt('ID time: '+dados.teams.map(t=>t.name+':'+t.id.substring(0,8)).join(' | '));const name=prompt('Nome estádio:');const level=prompt('Nível:');const cap=prompt('Capacidade:');const rev=prompt('Receita:');const rat=prompt('Rating:');await supabaseClient.from('stadiums').insert({team_id,name,level:Number(level),capacity:Number(cap),revenue_per_game:Number(rev),rating:Number(rat)});carregarTudo()}
-async function addJogador(){const name=prompt('Nome:');const pos=prompt('Posição:');const team_id=prompt('ID Time:');const val=prompt('Valor:');await supabaseClient.from('players').insert({name,position:pos,team_id,market_value:Number(val)});carregarTudo()}
-async function editJogador(id,g,s){const ng=prompt('Gols:',g);const ns=prompt('Defesas:',s);await supabaseClient.from('players').update({goals:Number(ng),saves:Number(ns)}).eq('id',id);carregarTudo()}
-async function addComp(){const name=prompt('Nome:');const type=prompt('Tipo: liga, mata_mata, grupos_mata');const two=confirm('Ida e volta?');await supabaseClient.from('competitions').insert({name,type,has_two_legs:two});carregarTudo()}
-async function addJogo(){const comp=prompt('ID Comp:');const home=prompt('ID Casa:');const away=prompt('ID Fora:');const hg=prompt('Gols Casa:');const ag=prompt('Gols Fora:');const res=await supabaseClient.from('matches').insert({competition_id:comp,home_team:home,away_team:away,home_goals:Number(hg),away_goals:Number(ag),is_finished:true}).select();if(res.data){const match_id=res.data[0].id;const estadio=await supabaseClient.from('stadiums').select('*').eq('team_id',home).single();if(estadio.data){await supabaseClient.from('match_revenues').insert({match_id,team_id:home,amount:estadio.data.revenue_per_game});alert('Renda R$ '+estadio.data.revenue_per_game)}}carregarTudo()}
+let temporada=localStorage.getItem('lef_temp')||'TEMPORADA I';
+document.getElementById('txtTemp').innerText=temporada;
+let times=JSON.parse(localStorage.getItem('lef_times')||'[]');
+let empresas=JSON.parse(localStorage.getItem('lef_empresas2')||'[]');
+let jogadores=JSON.parse(localStorage.getItem('lef_jogadores2')||'[]');
+let comps=JSON.parse(localStorage.getItem('lef_comps')||'[]');
+function trocaTab(t){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));event.target.classList.add('active');['times','empresas','comp','ranking','mercado'].forEach(k=>document.getElementById('tab-'+k).style.display='none');document.getElementById('tab-'+t).style.display='block';}
+function render(){
+ document.getElementById('listaTimes').innerHTML=times.map(t=>`<div class="card"><b>${t.nome}</b> <span class="badge">R$ ${t.caixa}M</span> <span class="badge2">${t.titulos.length} títulos</span><div style="margin-top:6px">${t.elenco.map(id=>{let j=jogadores.find(x=>x.id==id);return j?`<div class="playerLine"><b>${j.nome}</b> ${j.pos} | ${j.empresaNome}</div>`:''}).join('')||'<small style="opacity:.3">Elenco não divulgado</small>'}</div></div>`).join('')||'<p style="opacity:.4">Sem times</p>';
+ document.getElementById('listaEmpresas').innerHTML=empresas.map(e=>{let js=jogadores.filter(j=>j.empresaId==e.id);return `<div class="card"><b>${e.nome}</b> <span class="badge">R$ ${e.caixa}M</span><div style="margin-top:6px">${js.map(j=>`<div class="playerLine"><b>${j.nome}</b> ${j.pos} | R$ ${j.renda}M</div>`).join('')||''}</div></div>`;}).join('')||'<p style="opacity:.4">Sem empresas</p>';
+ document.getElementById('listaComp').innerHTML=comps.map(c=>`<div class="card"><b>${c.nome}</b> <span class="badge">R$ ${c.premio}M</span><div style="margin-top:8px">${c.campeoes.map(x=>`<div style="background:#0b0e1b;padding:8px;border-radius:10px;margin-top:6px"><b>${x.temp}</b> - 🏆 ${x.campeao} | 🥈 ${x.vice}</div>`).join('')||'<small style="opacity:.3">Sem campeões</small>'}</div></div>`).join('')||'<p style="opacity:.4">Sem competições</p>';
+ let lista=jogadores.filter(j=>j.publico);
+ document.getElementById('listaMercado').innerHTML=lista.map(j=>{let timeDono=times.find(t=>t.elenco.includes(j.id));return `<div class="card"><b>${j.nome}</b> <span class="badgeGreen">DISPONÍVEL</span><br><span class="badge2">${j.pos} | ${j.nac} | ${j.empresaNome}</span><br><small>Time: ${timeDono?timeDono.nome:'Livre'}</small></div>`;}).join('')||'<p style="opacity:.3;padding:20px;text-align:center">Nenhum jogador no mercado no momento.</p>';
+ let empOrdenadas=[...empresas].sort((a,b)=>b.caixa-a.caixa);
+ document.getElementById('rankEmpresas').innerHTML=empOrdenadas.map((e,i)=>`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #222"><span>${i+1}º ${e.nome}</span><b>R$ ${e.caixa}M</b></div>`).join('');
+ let jogOrdenados=[...jogadores].sort((a,b)=>b.renda-a.renda);
+ document.getElementById('rankJogadores').innerHTML=jogOrdenados.map((j,i)=>`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #222"><span>${i+1}º ${j.nome}</span><b>R$ ${j.renda}M</b></div>`).join('');
+ let falidas=empresas.filter(e=>e.falida);
+ document.getElementById('rankFalidas').innerHTML=falidas.map(e=>`<div style="padding:8px 0"><b>${e.nome}</b> → LEF</div>`).join('')||'Nenhuma';
+}
+render();
 </script>
 </body>
 </html>
